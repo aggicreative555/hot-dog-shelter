@@ -1,9 +1,13 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import postcss from './postcss.config.js';
 
 export default defineConfig({
   appType: "mpa",
   base: "",
+  server: {
+    port: 3000,
+  },
   build: {
     target: "esnext",
     rollupOptions: {
@@ -18,5 +22,8 @@ export default defineConfig({
         createPost: resolve(__dirname, "./post/create/index.html"),
       },
     },
+  },
+  css: {
+    postcss,
   },
 });
