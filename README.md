@@ -87,24 +87,56 @@ npm run preview
 npm run lint
 ```
 
-**5. Run with prettier**
+**5. Run fix eslint errors:**
+
+```bash
+npm run lint:fix
+```
+
+**6. Run with prettier**
 
 ```bash
 npm run format
 ```
 
+**7. Check prettier formatting**
+
+```bash
+npm run format:check
+```
+
 
 ## Deployment:
-This project can be deployed on platforms like Netlify. When deploying to Netlify, ensure you have the following configurations:
+This project can be deployed on platforms like [Netlify](https://app.netlify.com). When deploying to Netlify, ensure you have the following configurations:
 
-- **Build command**: npm run build
-- **Publish directory**: dist/
+- **1. Build project**: 
+```bash 
+npm run build
+```
+- **2. Deploy via Netlify**: 
+    - Go to Netlify and log in.
 
-## Dependencies:
+    - Click "New site from Git" and connect your GitHub repo.
 
-- **Tailwind**:  A popular CSS framework for building responsive web pages.
-- **dotenv**: A module to load environment variables from .env files.
+    - Set the build command: npm run build
 
+    - Set the publish directory: dist/
+
+    - Click Deploy.
+
+
+## Dependencies List:
+
+- **Frontend & Styling:**
+    - Vite – Fast frontend tooling
+    - Tailwind CSS – Utility-first CSS framework
+    - PostCSS - Tailwind pre-processor
+    - Autoprefixer – Adds vendor prefixes
+
+- **Development Tools:**
+    - ESLint – Linting for cleaner code
+    - Prettier – Automatic code formatting
+    - dotenv – Environment variable management
 
 ### License:
 
