@@ -31,13 +31,18 @@ export function onLogin() {
         const formData = new FormData(form);
         const email = formData.get('email');
         const password = formData.get('password');
+        const userSuccess = document.getElementById("userSuccess");
   
         try {
+
           await login({email, password});
-          alert('Login successful!');
-        //   setTimeout(() => {
-        //     window.location.href = '/';
-        //   }, 5);
+          if (response.ok) {
+            userSuccess.style.display = "block";
+            userSuccess.innerHTML = `Login sucessful!`;
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 1000);
+          }
           return false;
         } catch (error) {
           console.error('Login error:', error);

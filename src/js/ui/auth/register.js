@@ -35,9 +35,7 @@ export function onRegister() {
 
       try {
         await register({name, email, password});
-        alert('User registered successfully!');
         form.reset();
-        // window.location.href = '/auth/login/';
       } catch (error) {
         console.error('Error registering user:', error);
         alert('An error occurred while registering. Please try again.');

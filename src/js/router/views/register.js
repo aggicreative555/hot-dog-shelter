@@ -6,7 +6,6 @@ import { onRegister } from "../../ui/auth/register";
 */
 
 function initializeRegister() {
-    console.log('working');
     try {
       onRegister();
     } catch {
