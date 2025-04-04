@@ -1,5 +1,6 @@
 import { API_AUTH_REGISTER } from '../constants';
 import { login } from './login';
+import { headers } from '../headers';
 
 /**
  * Registers a new user with the provided details.
