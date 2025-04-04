@@ -36,13 +36,6 @@ export function onLogin() {
         try {
 
           await login({email, password});
-          if (response.ok) {
-            userSuccess.style.display = "block";
-            userSuccess.innerHTML = `Login sucessful!`;
-            setTimeout(() => {
-              window.location.href = '/';
-            }, 1000);
-          }
           return false;
         } catch (error) {
           console.error('Login error:', error);

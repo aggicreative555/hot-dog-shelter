@@ -29,8 +29,16 @@ export async function login({ email, password }) {
 
         const result = await response.json();
 
+        if (response.ok) {
+            userSuccess.style.display = "block";
+            userSuccess.innerHTML = `Login sucessful!`;
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 1000);
+        }
+        
         const {
-        data: { accessToken, name, ...restUserData },
+            data: { accessToken, name, ...restUserData },
         } = result;
         save("accessToken", accessToken);
         save("userName", name);
