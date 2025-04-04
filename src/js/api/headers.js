@@ -12,7 +12,7 @@ import { API_KEY } from "./constants";
  *
  */
 
-export function headers() {
+export function headers({includeAuth = true} = {}) {
   const headers = new Headers();
 
   headers.append('Content-type', 'application/json');
@@ -23,12 +23,10 @@ export function headers() {
     throw new Error('API Key is missing. Please retrieve it first.');
   }
 
-  if (localStorage.accessToken) {
+  if (includeAuth && localStorage.accessToken) {
     headers.append('Authorization', `Bearer ${localStorage.accessToken}`);
-  } else {
-    throw new Error('Authorization token is missing. Please retrieve it first.');
   }
-
+  
   return headers;
 }
 

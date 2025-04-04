@@ -24,13 +24,13 @@ import { headers } from '../headers';
  * console.log(response) // Outputs successful registration response.
  */
 
-export async function register(name, email, password) {
+export async function register({name, email, password}) {
   const body = JSON.stringify({ name, email, password });
 
   try {
     const response = await fetch(API_AUTH_REGISTER, {
       method: 'POST',
-      headers: headers(),
+      headers: headers({includeAuth : false}),
       body,
     });
 
