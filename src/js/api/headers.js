@@ -21,8 +21,8 @@ export function headers() {
     throw new Error('API Key is missing. Please retrieve it first.');
   }
 
-  if (localStorage.token) {
-    headers.append('Authorization', `Bearer ${localStorage.token}`);
+  if (localStorage.accessToken) {
+    headers.append('Authorization', `Bearer ${localStorage.accessToken}`);
   } else {
     throw new Error('Authorization token is missing. Please retrieve it first.');
   }
