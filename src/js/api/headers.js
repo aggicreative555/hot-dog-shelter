@@ -15,6 +15,8 @@ import { API_KEY } from "./constants";
 export function headers() {
   const headers = new Headers();
 
+  headers.append('Content-type', 'application/json');
+
   if (API_KEY) {
     headers.append('X-Noroff-API-Key', API_KEY);
   } else {
@@ -27,12 +29,6 @@ export function headers() {
     throw new Error('Authorization token is missing. Please retrieve it first.');
   }
 
-  if (body) {
-    headers.append('Content-type', 'application/json');
-  } else {
-   throw new Error('Body element is missing. Reload the page.');
-  }
-    
   return headers;
 }
 
