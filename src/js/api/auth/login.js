@@ -40,14 +40,9 @@ export async function login({ email, password }) {
         const {
         data: { accessToken, name, ...restUserData },
         } = result;
-
-        
         save("accessToken", accessToken);
         save("userName", name);
         save("user", { name, ...restUserData });
-
-        
-        // window.location.href = "/";
     } catch (error) {
         console.error("Login error:", error);
         throw error;
