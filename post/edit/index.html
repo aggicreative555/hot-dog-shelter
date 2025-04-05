@@ -11,18 +11,67 @@
   <body>
     <h1>Edit Post</h1>
     <form id="editPost">
-      <label for="edit-name">Name</label>
-      <input type="text" id="edit-name" name="name" />
-  
-      <label for="edit-description">Description</label>
-      <textarea id="edit-description" name="description"></textarea>
-  
-      <label for="edit-image-url">Image URL</label>
-      <input type="url" id="edit-image-url" name="image.url" />
-  
-      <label for="edit-image-alt">Image Alt Text</label>
-      <input type="text" id="edit-image-alt" name="image.alt" />
-  
+      <label for="name">Name<span>*</span></label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="species">Species</label>
+      <select id="species" name="species">
+        <option value="">Select a species</option>
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="lizard">Lizard</option>
+        <option value="snake">Snake</option>
+        <option value="rat">Rat</option>
+        <option value="mouse">Mouse</option>
+        <option value="hamster">Hamster</option>
+        <option value="bird">Bird</option>
+      </select>
+
+      <label for="breed">Breed</label>
+      <input type="text" id="breed" name="breed" />
+
+      <label for="age">Age</label>
+      <input type="text" id="age" name="age" />
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option value="">Select a gender</option>
+        <option value="black">Female</option>
+        <option value="white">Male</option>
+        <option value="unknown">Unknown</option>
+      </select>
+
+      <label for="color">Color</label>
+      <select id="color" name="color">
+        <option value="">Select a color</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="brown">Brown</option>
+        <option value="gray">Gray</option>
+        <option value="orange">Orange</option>
+        <option value="tan">Tan</option>
+        <option value="golden">Golden</option>
+        <option value="cream">Cream</option>
+        <option value="spotted">Spotted</option>
+        <option value="mixed">Mixed</option>
+      </select>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" />
+
+      <label for="adoptionStatus">Adoption Status</label>
+      <select id="adoptionStatus" name="adoptionStatus">
+        <option value="available">Available</option>
+        <option value="adopted">Adopted</option>
+        <option value="pending">Pending</option>
+      </select>
+
+      <label for="image-url">Image URL</label>
+      <input type="url" id="image-url" name="image.url" />
+
+      <label for="image-alt">Image Alt Text</label>
+      <input type="text" id="image-alt" name="image.alt" />
+
       <button type="submit">Update Post</button>
       <button type="button" id="deletePostButton" style="margin-left: 1rem;">Delete Post</button>
     </form>

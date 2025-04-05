@@ -10,39 +10,66 @@
     <h1>Create Post</h1>
     <div id="userSuccess"></div>
     <form id="createPost">
-      <label for="create-name">Name<span>*</span></label>
-      <input type="text" id="create-name" name="name" required />
+      <label for="name">Name<span>*</span></label>
+      <input type="text" id="name" name="name" required />
 
-      <label for="create-species">Species</label>
-      <input type="text" id="create-species" name="species" />
+      <label for="species">Species</label>
+      <select id="species" name="species">
+        <option value="">Select a species</option>
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="lizard">Lizard</option>
+        <option value="snake">Snake</option>
+        <option value="rat">Rat</option>
+        <option value="mouse">Mouse</option>
+        <option value="hamster">Hamster</option>
+        <option value="bird">Bird</option>
+      </select>
 
-      <label for="create-breed">Breed</label>
-      <input type="text" id="create-breed" name="breed" />
+      <label for="breed">Breed</label>
+      <input type="text" id="breed" name="breed" />
 
-      <label for="create-age">Age</label>
-      <input type="text" id="create-age" name="age" />
+      <label for="age">Age</label>
+      <input type="text" id="age" name="age" />
 
-      <label for="create-gender">Gender</label>
-      <input type="text" id="create-gender" name="gender" />
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option value="">Select a gender</option>
+        <option value="black">Female</option>
+        <option value="white">Male</option>
+        <option value="unknown">Unknown</option>
+      </select>
 
-      <label for="create-color">Color</label>
-      <input type="text" id="create-color" name="color" />
+      <label for="color">Color</label>
+      <select id="color" name="color">
+        <option value="">Select a color</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="brown">Brown</option>
+        <option value="gray">Gray</option>
+        <option value="orange">Orange</option>
+        <option value="tan">Tan</option>
+        <option value="golden">Golden</option>
+        <option value="cream">Cream</option>
+        <option value="spotted">Spotted</option>
+        <option value="mixed">Mixed</option>
+      </select>
 
-      <label for="create-location">Location</label>
-      <input type="text" id="create-location" name="location" />
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" />
 
-      <label for="create-status">Adoption Status</label>
-      <select id="create-status" name="adoptionStatus">
+      <label for="adoptionStatus">Adoption Status</label>
+      <select id="adoptionStatus" name="adoptionStatus">
         <option value="available">Available</option>
         <option value="adopted">Adopted</option>
         <option value="pending">Pending</option>
       </select>
 
-      <label for="create-image-url">Image URL</label>
-      <input type="url" id="create-image-url" name="image.url" />
+      <label for="image-url">Image URL</label>
+      <input type="url" id="image-url" name="image.url" />
 
-      <label for="create-image-alt">Image Alt Text</label>
-      <input type="text" id="create-image-alt" name="image.alt" />
+      <label for="image-alt">Image Alt Text</label>
+      <input type="text" id="image-alt" name="image.alt" />
 
       <button type="submit">Create Post</button>
     </form>
