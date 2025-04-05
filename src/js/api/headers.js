@@ -12,21 +12,33 @@ import { API_KEY } from "./constants";
  *
  */
 
-export function headers({includeAuth = true} = {}) {
+
+/**
+ * Generates HTTP headers for API requests.
+ *
+ * @param {Object} options
+ * @param {boolean} [options.authRequired=false] - Whether auth token is required.
+ * @param {boolean} [options.apiKeyRequired=true] - Whether API key is required.
+ * @returns {Headers} The configured headers object.
+ */
+export function headers({ authRequired = false, apiKeyRequired = true } = {}) {
   const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
 
-  headers.append('Content-type', 'application/json');
-
-  if (API_KEY) {
+  // Only append API key if required
+  if (apiKeyRequired && API_KEY) {
     headers.append('X-Noroff-API-Key', API_KEY);
-  } else {
-    throw new Error('API Key is missing. Please retrieve it first.');
+  } else if (apiKeyRequired && !API_KEY) {
+    throw new Error('API Key is missing.');
   }
 
-  if (includeAuth && localStorage.accessToken) {
+  // Only append Auth token if required
+  if (authRequired && localStorage.accessToken) {
     headers.append('Authorization', `Bearer ${localStorage.accessToken}`);
+  } else if (authRequired && !localStorage.accessToken) {
+    throw new Error('Authorization token is missing.');
   }
-  
+
   return headers;
 }
 

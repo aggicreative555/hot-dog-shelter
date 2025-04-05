@@ -30,7 +30,7 @@ export async function register({name, email, password}) {
   try {
     const response = await fetch(API_AUTH_REGISTER, {
       method: 'POST',
-      headers: headers({includeAuth : false}),
+      headers: headers({apiKeyRequired : false}),
       body,
     });
 

@@ -23,18 +23,19 @@ export async function login({ email, password }) {
     try {
         const response = await fetch(API_AUTH_LOGIN, {
         method: "POST",
-        headers: headers(), 
+        headers: headers({ authRequired: true }), 
         body,
         });
 
         const result = await response.json();
+        const userSuccess = document.getElementById("userSuccess");
 
         if (response.ok) {
             userSuccess.style.display = "block";
             userSuccess.innerHTML = `Login sucessful!`;
             setTimeout(() => {
               window.location.href = '/';
-            }, 1000);
+            }, 2000);
         }
         
         const {
