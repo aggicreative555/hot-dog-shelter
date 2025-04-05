@@ -10,9 +10,21 @@
 
   <body>
     <h1>Edit Post</h1>
-
-    <form name="editPost">
-      <button>Edit Post</button>
+    <form id="editPost">
+      <label for="edit-name">Name</label>
+      <input type="text" id="edit-name" name="name" />
+  
+      <label for="edit-description">Description</label>
+      <textarea id="edit-description" name="description"></textarea>
+  
+      <label for="edit-image-url">Image URL</label>
+      <input type="url" id="edit-image-url" name="image.url" />
+  
+      <label for="edit-image-alt">Image Alt Text</label>
+      <input type="text" id="edit-image-alt" name="image.alt" />
+  
+      <button type="submit">Update Post</button>
+      <button type="button" id="deletePostButton" style="margin-left: 1rem;">Delete Post</button>
     </form>
   </body>
 </html>

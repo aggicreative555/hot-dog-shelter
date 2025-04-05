@@ -8,9 +8,43 @@
   </head>
   <body>
     <h1>Create Post</h1>
+    <div id="userSuccess"></div>
+    <form id="createPost">
+      <label for="create-name">Name<span>*</span></label>
+      <input type="text" id="create-name" name="name" required />
 
-    <form name="createPost">
-      <button>Create Post</button>
+      <label for="create-species">Species</label>
+      <input type="text" id="create-species" name="species" />
+
+      <label for="create-breed">Breed</label>
+      <input type="text" id="create-breed" name="breed" />
+
+      <label for="create-age">Age</label>
+      <input type="text" id="create-age" name="age" />
+
+      <label for="create-gender">Gender</label>
+      <input type="text" id="create-gender" name="gender" />
+
+      <label for="create-color">Color</label>
+      <input type="text" id="create-color" name="color" />
+
+      <label for="create-location">Location</label>
+      <input type="text" id="create-location" name="location" />
+
+      <label for="create-status">Adoption Status</label>
+      <select id="create-status" name="adoptionStatus">
+        <option value="available">Available</option>
+        <option value="adopted">Adopted</option>
+        <option value="pending">Pending</option>
+      </select>
+
+      <label for="create-image-url">Image URL</label>
+      <input type="url" id="create-image-url" name="image.url" />
+
+      <label for="create-image-alt">Image Alt Text</label>
+      <input type="text" id="create-image-alt" name="image.alt" />
+
+      <button type="submit">Create Post</button>
     </form>
   </body>
 </html>
