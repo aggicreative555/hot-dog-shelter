@@ -27,20 +27,19 @@ import { API_PETS } from "../constants";
  */
 
 export async function updatePost(id) {
-    if (!id) {
-      throw new Error("Post ID is required for updating.");
-    }
+  if (!id) {
+    throw new Error("Post ID is required for updating.");
+  }
 
-    const url = new URL(`${API_PETS}/${id}`);
-    
-  
-    const response = await fetch(url.toString(), {
-        method: 'PUT',
-        headers: headers({ authRequired: true }),
-        body: JSON.stringify(data),
-    });
-  
-    const updatedPost = await response.json();
-  
-    return updatedPost;
+  const url = new URL(`${API_PETS}/${id}`);
+
+  const response = await fetch(url.toString(), {
+    method: "PUT",
+    headers: headers({ authRequired: true }),
+    body: JSON.stringify(data),
+  });
+
+  const updatedPost = await response.json();
+
+  return updatedPost;
 }

@@ -1,6 +1,6 @@
-import { API_AUTH_REGISTER } from '../constants';
-import { login } from './login';
-import { headers } from '../headers';
+import { API_AUTH_REGISTER } from "../constants";
+import { login } from "./login";
+import { headers } from "../headers";
 
 /**
  * Registers a new user with the provided details.
@@ -24,13 +24,13 @@ import { headers } from '../headers';
  * console.log(response) // Outputs successful registration response.
  */
 
-export async function register({name, email, password}) {
+export async function register({ name, email, password }) {
   const body = JSON.stringify({ name, email, password });
 
   try {
     const response = await fetch(API_AUTH_REGISTER, {
-      method: 'POST',
-      headers: headers({apiKeyRequired : false}),
+      method: "POST",
+      headers: headers({ apiKeyRequired: false }),
       body,
     });
 
@@ -48,7 +48,7 @@ export async function register({name, email, password}) {
       throw new Error(`Registration failed: ${response.statusText}`);
     }
   } catch (error) {
-    console.error('Registration failed:', error);
+    console.error("Registration failed:", error);
     throw error;
   }
 }

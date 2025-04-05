@@ -11,41 +11,40 @@ import { login } from "../../api/auth/login";
  */
 
 export function onLogin() {
-    const form = document.querySelector('#loginForm');
-  
-    if (form) {
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-  
-        // Disable submit to prevent spamming.
-        const submitButton = form.querySelector('button[type="submit"]');
-  
-        if (!submitButton) {
-          console.error('Submit button not found', error);
-          return;
-        }
-  
-        submitButton.disabled = true;
-        submitButton.textContent = 'Loggin in...';
-  
-        const formData = new FormData(form);
-        const email = formData.get('email');
-        const password = formData.get('password');
-  
-        try {
+  const form = document.querySelector("#loginForm");
 
-          await login({email, password});
-          return false;
-        } catch (error) {
-          console.error('Login error:', error);
-          alert('An error occurred while loggin in. Please try again.');
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = 'Login';
-          form.reset();
-        }
-      });
-    } else {
-      console.error('Error submitting login information');
-    }
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      // Disable submit to prevent spamming.
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      if (!submitButton) {
+        console.error("Submit button not found", error);
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Loggin in...";
+
+      const formData = new FormData(form);
+      const email = formData.get("email");
+      const password = formData.get("password");
+
+      try {
+        await login({ email, password });
+        return false;
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("An error occurred while loggin in. Please try again.");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Login";
+        form.reset();
+      }
+    });
+  } else {
+    console.error("Error submitting login information");
+  }
 }

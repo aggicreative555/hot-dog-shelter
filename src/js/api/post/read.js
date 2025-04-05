@@ -1,5 +1,5 @@
-import { API_PETS } from '../constants';
-import { headers} from '../headers';
+import { API_PETS } from "../constants";
+import { headers } from "../headers";
 
 /**
  * Fetches multiple posts/listings with options for pagination, sorting, and filtering.
@@ -13,38 +13,39 @@ import { headers} from '../headers';
  * @param {boolean} [options.active=true] - Whether to filter by active posts.
  * @returns {Promise<Array>} Array of posts sorted by created date.
  * @throws {Error} If the API call fails.
-*/
+ */
 
 export async function readPosts({
-    limit = 12,
-    page = 1,
-    sort = 'created',
-    sortOrder = 'desc',
-    active = true,} = {}) {
+  limit = 12,
+  page = 1,
+  sort = "created",
+  sortOrder = "desc",
+  active = true,
+} = {}) {
   try {
-      const url = new URL(API_PETS);
-      url.searchParams.append('limit', limit);
-      url.searchParams.append('page', page);
-      url.searchParams.append('owner', true);
-      url.searchParams.append('adoptionStatus', active);
-      url.searchParams.append('sort', sort);
-      url.searchParams.append('sortOrder', sortOrder);
-      
-      const response = await fetch(url.toString(), {
-          headers: headers({ apiKeyRequired: false }),
-          method: 'GET',
-        });
-        
-        if (!response.ok) {
-            throw new Error(`Failed to fetch posts: ${response.statusText}`);
-        }
-        
-        const { data = [] } = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-        throw error;
+    const url = new URL(API_PETS);
+    url.searchParams.append("limit", limit);
+    url.searchParams.append("page", page);
+    url.searchParams.append("owner", true);
+    url.searchParams.append("adoptionStatus", active);
+    url.searchParams.append("sort", sort);
+    url.searchParams.append("sortOrder", sortOrder);
+
+    const response = await fetch(url.toString(), {
+      headers: headers({ apiKeyRequired: false }),
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch posts: ${response.statusText}`);
     }
+
+    const { data = [] } = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    throw error;
+  }
 }
 
 /**
@@ -59,28 +60,28 @@ export async function readPosts({
  * @example
  * const post = await readPost(123);
  * console.log(post); // Outputs post data with ID 123
-*/
-
+ */
 
 export async function readPost(id) {
   if (!id) {
-    throw new Error('Post ID is required.');
+    throw new Error("Post ID is required.");
   }
 
   const url = new URL(`${API_PETS}/${id}`);
 
   const response = await fetch(url.toString(), {
-    method: 'GET',
+    method: "GET",
     headers: headers({ apiKeyRequired: false }),
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to read post with ID ${id}: ${response.statusText}`);
+    throw new Error(
+      `Failed to read post with ID ${id}: ${response.statusText}`,
+    );
   }
 
   const postData = await response.json();
   return postData;
 }
-
 
 export async function readPostsByUser(username, limit = 12, page = 1, tag) {}

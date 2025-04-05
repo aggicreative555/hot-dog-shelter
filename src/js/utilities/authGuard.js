@@ -6,10 +6,10 @@
  */
 
 export function authGuard() {
-  const token = localStorage.getItem('accessToken');
+  const token = localStorage.getItem("accessToken");
   if (!token) {
-    alert('You must be logged in to view this page');
-    window.location.href = '/auth/login/';
+    alert("You must be logged in to view this page");
+    window.location.href = "/auth/login/";
   }
 }
 
@@ -46,7 +46,7 @@ export function load(key) {
     const value = localStorage.getItem(key);
     return JSON.parse(value);
   } catch (error) {
-    console.error('Error loading key', error);
+    console.error("Error loading key", error);
     return error;
   }
 }

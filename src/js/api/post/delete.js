@@ -20,25 +20,25 @@ import { headers } from "../headers";
  */
 
 export async function deletePost(id) {
-    if (!id) {
-      throw new Error("Post ID is required.");
-    }
-  
-    const url = new URL(`${API_PETS}/${id}`);
-    
-    const response = await fetch(url.toString(), {
-        method: 'DELETE',
-        headers: headers({ authRequired: true }),
-    });
-  
-    if (response.status === 204) {
-      console.log(`Post with ID ${id} has been deleted successfully.`);
-      return;
-    }
-  
-    if (!response.ok) {
-      throw new Error(
-        `Failed to delete post with ID ${id}: ${response.statusText}`,
-      );
-    }
+  if (!id) {
+    throw new Error("Post ID is required.");
+  }
+
+  const url = new URL(`${API_PETS}/${id}`);
+
+  const response = await fetch(url.toString(), {
+    method: "DELETE",
+    headers: headers({ authRequired: true }),
+  });
+
+  if (response.status === 204) {
+    console.log(`Post with ID ${id} has been deleted successfully.`);
+    return;
+  }
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to delete post with ID ${id}: ${response.statusText}`,
+    );
+  }
 }

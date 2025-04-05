@@ -18,34 +18,34 @@ import { headers } from "../headers";
  */
 
 export async function login({ email, password }) {
-    const body = JSON.stringify({ email, password });
+  const body = JSON.stringify({ email, password });
 
-    try {
-        const response = await fetch(API_AUTH_LOGIN, {
-        method: "POST",
-        headers: headers({ authRequired: true }), 
-        body,
-        });
+  try {
+    const response = await fetch(API_AUTH_LOGIN, {
+      method: "POST",
+      headers: headers({ authRequired: true }),
+      body,
+    });
 
-        const result = await response.json();
-        const userSuccess = document.getElementById("userSuccess");
+    const result = await response.json();
+    const userSuccess = document.getElementById("userSuccess");
 
-        if (response.ok) {
-            userSuccess.style.display = "block";
-            userSuccess.innerHTML = `Login sucessful!`;
-            setTimeout(() => {
-              window.location.href = '/';
-            }, 2000);
-        }
-        
-        const {
-            data: { accessToken, name, ...restUserData },
-        } = result;
-        save("accessToken", accessToken);
-        save("userName", name);
-        save("user", { name, ...restUserData });
-    } catch (error) {
-        console.error("Login error:", error);
-        throw error;
+    if (response.ok) {
+      userSuccess.style.display = "block";
+      userSuccess.innerHTML = `Login sucessful!`;
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     }
+
+    const {
+      data: { accessToken, name, ...restUserData },
+    } = result;
+    save("accessToken", accessToken);
+    save("userName", name);
+    save("user", { name, ...restUserData });
+  } catch (error) {
+    console.error("Login error:", error);
+    throw error;
+  }
 }

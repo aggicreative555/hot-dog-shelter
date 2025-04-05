@@ -37,7 +37,7 @@ import { API_PETS } from "../constants";
  * };
  * const response = await createPost(post);
  * console.log(response); // Outputs created post data
-*/
+ */
 
 export async function createPost(body) {
   const response = await fetch(API_PETS, {
@@ -52,17 +52,17 @@ export async function createPost(body) {
   if (response.ok) {
     const postId = post.data?.id;
 
-    if(userSuccess) {
-        userSuccess.style.display = "block";
-        userSuccess.innerHTML = `Post created successfully!`;
+    if (userSuccess) {
+      userSuccess.style.display = "block";
+      userSuccess.innerHTML = `Post created successfully!`;
     } else {
-        console.error('userSuccess element not found')
+      console.error("userSuccess element not found");
     }
 
     if (postId) {
-        setTimeout(() => {
-            window.location.replace(`/pets/?id=${postId}`);
-        }, 2000);
+      setTimeout(() => {
+        window.location.replace(`/pets/?id=${postId}`);
+      }, 2000);
     }
   } else {
     console.error("Error creating post:", post);
