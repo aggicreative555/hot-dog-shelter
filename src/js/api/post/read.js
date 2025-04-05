@@ -20,8 +20,7 @@ export async function readPosts({
     page = 1,
     sort = 'created',
     sortOrder = 'desc',
-    active = true,
-} = {}) {
+    active = true,} = {}) {
   try {
       const url = new URL(API_PETS);
       url.searchParams.append('limit', limit);
@@ -47,9 +46,6 @@ export async function readPosts({
         throw error;
     }
 }
-
-import { API_PETS } from '../constants';
-import { headers } from '../headers';
 
 /**
  * Reads a single post by its ID.
