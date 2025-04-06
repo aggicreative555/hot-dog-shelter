@@ -71,7 +71,7 @@ export async function readPost(id) {
 
   const response = await fetch(url.toString(), {
     headers: headers({ apiKeyRequired: false }),
-    method: "GET"
+    method: "GET",
   });
 
   if (!response.ok) {
