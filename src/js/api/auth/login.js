@@ -23,7 +23,7 @@ export async function login({ email, password }) {
   try {
     const response = await fetch(API_AUTH_LOGIN, {
       method: "POST",
-      headers: headers({ authRequired: true }),
+      headers: headers({ authRequired: false }),
       body,
     });
 

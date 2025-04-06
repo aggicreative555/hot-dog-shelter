@@ -20,7 +20,13 @@ export function authGuard() {
  * @param {any} value - The value to store in localStorage.
 */
 export function save(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  // If value is a string, store it directly without JSON.stringify()
+  if (typeof value === 'string') {
+    localStorage.setItem(key, value);
+  } else {
+    // Otherwise, stringify the value (for objects, arrays, etc.)
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 }
 /**
  * Loads and parses a value from localStorage.

@@ -21,11 +21,14 @@ export function headers({ authRequired = false, apiKeyRequired = true } = {}) {
   }
 
   // Only append Auth token if required
-  if (authRequired && localStorage.accessToken) {
-    headers.append("Authorization", `Bearer ${localStorage.accessToken}`);
-  } else if (authRequired && !localStorage.accessToken) {
+  if (authRequired) {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    headers.append("Authorization", `Bearer ${accessToken}`);
+  } else {
     throw new Error("Authorization token is missing.");
-  }
+  }}
+
 
   return headers;
 }
