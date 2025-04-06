@@ -70,8 +70,8 @@ export async function readPost(id) {
   const url = new URL(`${API_PETS}/${id}`);
 
   const response = await fetch(url.toString(), {
-    method: "GET",
     headers: headers({ apiKeyRequired: false }),
+    method: "GET"
   });
 
   if (!response.ok) {
