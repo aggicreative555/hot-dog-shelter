@@ -13,7 +13,6 @@ export function shareButton() {
 
     // Storing the URL of the current webpage
     const url = window.location.href.slice(7); // Removes 'http://'
-    console.log(url);
 
     shareButton.addEventListener( 'click', () => {
         navigator.clipboard.writeText(url);

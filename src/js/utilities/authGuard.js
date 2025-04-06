@@ -14,21 +14,14 @@ export function authGuard() {
 }
 
 /**
- * Saves a value to localStorage under the specified key.
+ * Saves data to localStorage with correct handling of string values.
  *
- * @function save
- * @param {string} key - The key under which the value will be stored.
- * @param {*} value - The value to store. Can be any data type, which will be stringified.
- *
- * // Example usage: Save user data to localStorage
- * save("userProfile", { name: "User", email: "user@mail.com" });
- *
- */
-
+ * @param {string} key - The key under which the value should be stored.
+ * @param {any} value - The value to store in localStorage.
+*/
 export function save(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
-
 /**
  * Loads and parses a value from localStorage.
  *

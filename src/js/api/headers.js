@@ -1,25 +1,14 @@
 import { API_KEY } from "./constants";
-
 /**
  * Generates HTTP headers for API requests, including Content-Type, Authorization, and API key.
  *
  * @function headers
- * @returns {Headers} A headers object containing:
- *   - `Content-Type`: Set to "application/json".
- *   - `Authorization`: Bearer token for user authentication.
- *   - `X-Noroff-API-Key`: API key for the service.
- * @throws {Error} If the access token or API key is missing.
- *
- */
-
-/**
- * Generates HTTP headers for API requests.
- *
  * @param {Object} options
  * @param {boolean} [options.authRequired=false] - Whether auth token is required.
  * @param {boolean} [options.apiKeyRequired=true] - Whether API key is required.
  * @returns {Headers} The configured headers object.
- */
+ * @throws {Error} If the access token or API key is missing and required.
+*/
 export function headers({ authRequired = false, apiKeyRequired = true } = {}) {
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
