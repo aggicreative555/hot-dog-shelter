@@ -7,13 +7,13 @@ import { headers } from "../headers";
  * @async
  * @function deletePost
  * @param {string|number} id - The ID of the post to delete.
- * @returns {Promise<void>} Resolves when post is successful.
+ * @returns {Promise<{ok: boolean}>} Result of the deletion operation.
  * @throws {Error} If the API request fails or post ID is invalid.
  *
  * @example
  * try {
- *   await deletePost(123);
- *   console.log("Post deleted successfully.");
+ *   const result = await deletePost(123);
+ *   if (result.ok) console.log("Post deleted.");
  * } catch (error) {
  *   console.error("Error deleting post:", error.message);
  * }
@@ -32,13 +32,10 @@ export async function deletePost(id) {
   });
 
   if (response.status === 204) {
-    console.log(`Post with ID ${id} has been deleted successfully.`);
-    return;
-  }
-
-  if (!response.ok) {
-    throw new Error(
-      `Failed to delete post with ID ${id}: ${response.statusText}`,
-    );
+    return { ok: true };
+  } else {
+    const message = `Failed to delete post with ID ${id}: ${response.statusText}`;
+    console.error(message);
+    throw new Error(message);
   }
 }
