@@ -5,15 +5,15 @@
  * using the browser's history stack.
  *
  * @function goBackButton
-*/
+ */
 export function goBackButton() {
-    const backButton = document.createElement('button');
+  const backButton = document.createElement("button");
 
-    backButton.innerHTML = 'Go Back';
+  backButton.innerHTML = "Go Back";
 
-    backButton.addEventListener('click', () => {
-        history.back();
-    });
+  backButton.addEventListener("click", () => {
+    history.back();
+  });
 
-    document.body.appendChild(backButton);
+  document.body.appendChild(backButton);
 }
