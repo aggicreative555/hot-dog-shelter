@@ -2,6 +2,8 @@ import { readPosts } from "../../api/post/read";
 import { readPost } from "../../api/post/read";
 import { goBackButton } from "../../ui/global/goBackButton";
 import { shareButton } from "../../ui/global/shareButton";
+import { updateButton } from "../../ui/global/updateButton";
+import { load } from "../../utilities/authGuard";
 import {
   renderPost,
   renderMultiplePosts,
@@ -20,7 +22,7 @@ import {
  *
  * @function loadPosts
  * @returns {Promise<void>}
-*/
+ */
 
 export async function loadPosts() {
   const params = new URLSearchParams(window.location.search);
@@ -39,9 +41,15 @@ export async function loadPosts() {
       setupPostClickNavigation();
     } else if (postId) {
       const post = await readPost(postId);
+      const postOwnerName = post.owner.name;
+      const currentUserName = load('userName'); 
+
       container.innerHTML = renderPost(post);
       goBackButton();
       shareButton();
+      if (currentUserName === postOwnerName) {
+        updateButton(postId);
+      }
     }
   } catch (error) {
     console.error("Error loading post(s):", error);
