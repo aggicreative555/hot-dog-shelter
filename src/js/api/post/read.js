@@ -83,5 +83,3 @@ export async function readPost(id) {
   const { data = [] } = await response.json();
   return data;
 }
-
-export async function readPostsByUser(username, limit = 12, page = 1, tag) {}

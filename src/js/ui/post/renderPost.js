@@ -7,6 +7,7 @@ export function renderPost(post) {
         <p><strong>Age:</strong> ${post.age || "N/A"}</p>
         <p><strong>Gender:</strong> ${post.gender || "N/A"}</p>
         <p><strong>Color:</strong> ${post.color || "N/A"}</p>
+        <p><strong>Description:</strong> ${post.description || "N/A"}</p>
         <p><strong>Location:</strong> ${post.location || "N/A"}</p>
         <p><strong>Status:</strong> ${post.adoptionStatus || "N/A"}</p>
         ${

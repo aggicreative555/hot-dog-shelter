@@ -10,6 +10,7 @@
 
   <body>
     <h1>Edit Post</h1>
+    <div id="userSuccess"></div>
     <form id="editPost">
       <label for="name">Name<span>*</span></label>
       <input type="text" id="name" name="name" required />
@@ -32,6 +33,14 @@
 
       <label for="age">Age</label>
       <input type="text" id="age" name="age" />
+
+      
+      <label for="size">Size</label>
+      <input type="text" id="size" name="size" required />
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" required></textarea>
+
 
       <label for="gender">Gender</label>
       <select id="gender" name="gender">
@@ -72,8 +81,8 @@
       <label for="image-alt">Image Alt Text</label>
       <input type="text" id="image-alt" name="image.alt" />
 
-      <button type="submit">Update Post</button>
-      <button type="button" id="deletePostButton" style="margin-left: 1rem;">Delete Post</button>
+      <button type="submit">Update post</button>
     </form>
+
   </body>
 </html>
