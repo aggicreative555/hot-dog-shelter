@@ -65,7 +65,10 @@ export async function onUpdatePost(event) {
 
     if (result.ok) {
       messageContainer.innerHTML = "Post successfully updated! Refreshing...";
-      setTimeout(() => window.location.href = `/pets/?id=${result.data.id}`, 1500);
+      setTimeout(
+        () => (window.location.href = `/pets/?id=${result.data.id}`),
+        1500,
+      );
     } else {
       messageContainer.innerHTML =
         "Failed to update post. Please check your inputs and try again.";
