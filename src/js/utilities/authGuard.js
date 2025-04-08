@@ -18,10 +18,10 @@ export function authGuard() {
  *
  * @param {string} key - The key under which the value should be stored.
  * @param {any} value - The value to store in localStorage.
-*/
+ */
 export function save(key, value) {
   // If value is a string, store it directly without JSON.stringify()
-  if (typeof value === 'string') {
+  if (typeof value === "string") {
     localStorage.setItem(key, value);
   } else {
     // Otherwise, stringify the value (for objects, arrays, etc.)
@@ -41,13 +41,7 @@ export function save(key, value) {
  */
 
 export function load(key) {
-  try {
-    const value = localStorage.getItem(key);
-    return JSON.parse(value);
-  } catch (error) {
-    console.error("Error loading key", error);
-    return error;
-  }
+  return localStorage.getItem(key);
 }
 
 /**
@@ -62,5 +56,5 @@ export function load(key) {
  */
 
 export function remove(key) {
-  localStorage.removeItem(key);
+  return localStorage.removeItem(key);
 }

@@ -3,12 +3,13 @@ import { readPost } from "../../api/post/read";
 import { goBackButton } from "../../ui/global/goBackButton";
 import { shareButton } from "../../ui/global/shareButton";
 import { updateButton } from "../../ui/global/updateButton";
-import { load } from "../../utilities/authGuard";
+import { load, save } from "../../utilities/authGuard";
 import {
   renderPost,
   renderMultiplePosts,
   setupPostClickNavigation,
 } from "../../ui/post/renderPost";
+import { searchBar, setupLiveSearch } from "../../ui/global/search";
 
 /**
  * @async
@@ -28,6 +29,7 @@ export async function loadPosts() {
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("id");
   const container = document.getElementById("postsContainer");
+  const searchContainer = document.getElementById("searchContainer");
 
   if (!container) {
     console.error("No #postsContainer found in the DOM.");
@@ -38,11 +40,18 @@ export async function loadPosts() {
     if (!postId) {
       const posts = await readPosts();
       renderMultiplePosts(posts);
+      save("cachedPosts", JSON.stringify(posts));
+      searchBar(searchContainer);
+      setupLiveSearch({
+        inputId: "searchQuery",
+        typeSelectId: "searchType",
+        postsContainerId: "postsContainer",
+      });
       setupPostClickNavigation();
     } else if (postId) {
       const post = await readPost(postId);
       const postOwnerName = post.owner.name;
-      const currentUserName = load('userName'); 
+      const currentUserName = load("userName");
 
       container.innerHTML = renderPost(post);
       goBackButton();
