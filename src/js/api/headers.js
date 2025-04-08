@@ -8,7 +8,7 @@ import { API_KEY } from "./constants";
  * @param {boolean} [options.apiKeyRequired=true] - Whether API key is required.
  * @returns {Headers} The configured headers object.
  * @throws {Error} If the access token or API key is missing and required.
-*/
+ */
 export function headers({ authRequired = false, apiKeyRequired = true } = {}) {
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
@@ -22,13 +22,13 @@ export function headers({ authRequired = false, apiKeyRequired = true } = {}) {
 
   // Only append Auth token if required
   if (authRequired) {
-  const accessToken = localStorage.getItem("accessToken");
-  if (accessToken) {
-    headers.append("Authorization", `Bearer ${accessToken}`);
-  } else {
-    throw new Error("Authorization token is missing.");
-  }}
-
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      headers.append("Authorization", `Bearer ${accessToken}`);
+    } else {
+      throw new Error("Authorization token is missing.");
+    }
+  }
 
   return headers;
 }
