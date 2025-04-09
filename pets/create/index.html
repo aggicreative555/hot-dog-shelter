@@ -10,11 +10,11 @@
     <h1>Create Post</h1>
     <div id="userSuccess"></div>
     <form id="createPost">
-      <label for="name">Name<span>*</span></label>
+      <label for="name">Name</label>
       <input type="text" id="name" name="name" required />
 
       <label for="species">Species</label>
-      <select id="species" name="species">
+      <select id="species" name="species" required>
         <option value="">Select a species</option>
         <option value="cat">Cat</option>
         <option value="dog">Dog</option>
@@ -30,7 +30,7 @@
       <input type="text" id="breed" name="breed" />
 
       <label for="age">Age</label>
-      <input type="text" id="age" name="age" />
+      <input type="text" id="age" name="age" required/>
 
       
       <label for="size">Size</label>
@@ -43,8 +43,8 @@
       <label for="gender">Gender</label>
       <select id="gender" name="gender">
         <option value="">Select a gender</option>
-        <option value="black">Female</option>
-        <option value="white">Male</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
         <option value="unknown">Unknown</option>
       </select>
 
@@ -56,7 +56,6 @@
         <option value="brown">Brown</option>
         <option value="gray">Gray</option>
         <option value="orange">Orange</option>
-        <option value="tan">Tan</option>
         <option value="golden">Golden</option>
         <option value="cream">Cream</option>
         <option value="spotted">Spotted</option>
@@ -64,7 +63,7 @@
       </select>
 
       <label for="location">Location</label>
-      <input type="text" id="location" name="location" />
+      <input type="text" id="location" name="location" required />
 
       <label for="adoptionStatus">Adoption Status</label>
       <select id="adoptionStatus" name="adoptionStatus">

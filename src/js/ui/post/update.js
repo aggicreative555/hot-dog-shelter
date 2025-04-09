@@ -27,18 +27,6 @@ export async function onUpdatePost(event) {
     alt: postData["image.alt"] || "",
   };
 
-  // Validate required fields
-  if (
-    !postData.name ||
-    !postData.species ||
-    !postData.age ||
-    !postData.location
-  ) {
-    messageContainer.innerHTML =
-      "Name, species, age, and location are required.";
-    return;
-  }
-
   // Ensure age is a number
   const age = Number(postData.age);
   if (isNaN(age)) {
@@ -66,7 +54,7 @@ export async function onUpdatePost(event) {
     if (result.ok) {
       messageContainer.innerHTML = "Post successfully updated! Refreshing...";
       setTimeout(
-        () => (window.location.href = `/pets/?id=${result.data.id}`),
+        () => (window.location.href = `/pets/?id=${id}`),
         1500,
       );
     } else {
