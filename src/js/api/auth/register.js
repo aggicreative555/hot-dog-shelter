@@ -5,6 +5,9 @@ import { headers } from "../headers";
 /**
  * Registers a new user with the provided details.
  *
+ * Displays a success message and logs the user in on success.
+ * Displays relevant validation errors returned from the API on failure.
+ *
  * @param {Object} data - The registration data.
  * @param {string} data.name - The user's name (required).
  * @param {string} data.email - The user's email address (required).
@@ -36,16 +39,29 @@ export async function register({ name, email, password }) {
 
     const result = await response.json();
     const userSuccess = document.getElementById("userSuccess");
+    const errorMessage =
+      `Registration failed. ${result?.errors?.[0]?.message}. Please try again.` ||
+      `Registration failed. ${result?.message}. Please try again.` ||
+      "Registration failed. Please check that all fields are filled in correctly and try again.";
+
+    if (userSuccess) {
+      userSuccess.style.display = "block";
+      userSuccess.innerHTML = ""; // Clear
+    }
 
     if (response.ok) {
       userSuccess.style.display = "block";
-      userSuccess.innerHTML = `User was created successfully, logging in...`;
+      userSuccess.innerHTML = `User created successfully, logging in...`;
       setTimeout(() => {
         login({ email, password });
-      }, 3000);
+      }, 2000);
       return result;
     } else {
-      throw new Error(`Registration failed: ${response.statusText}`);
+      userSuccess.innerHTML = errorMessage;
+
+      setTimeout(() => {
+        userSuccess.innerHTML = ""; // Clear
+      }, 2000);
     }
   } catch (error) {
     console.error("Registration failed:", error);

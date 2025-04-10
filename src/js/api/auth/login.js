@@ -29,12 +29,27 @@ export async function login({ email, password }) {
 
     const result = await response.json();
     const userSuccess = document.getElementById("userSuccess");
+    const errorMessage =
+      `Login failed. ${result?.errors?.[0]?.message}. Please try again.` ||
+      `Login failed. ${result?.message}. Please try again.` ||
+      "Login failed. Please check that all fields are filled in correctly and try again.";
+
+    if (userSuccess) {
+      userSuccess.style.display = "block";
+      userSuccess.innerHTML = ""; // Clear
+    }
 
     if (response.ok) {
       userSuccess.style.display = "block";
-      userSuccess.innerHTML = `Login sucessful!`;
+      userSuccess.innerHTML = `Login sucessful! Redirecting to home page...`;
       setTimeout(() => {
         window.location.href = "/";
+      }, 1500);
+    } else {
+      userSuccess.innerHTML = errorMessage;
+
+      setTimeout(() => {
+        userSuccess.innerHTML = ""; // Clear
       }, 2000);
     }
 
