@@ -1,4 +1,6 @@
 import { login } from "../../api/auth/login";
+import { validateField } from "../../ui/global/validateField";
+import { isValidEmail, isValidPassword } from "../../ui/global/validators";
 /**
  * Handles the login form submission by extracting email and password
  * from the form and sending it to the login API function.
@@ -12,8 +14,13 @@ import { login } from "../../api/auth/login";
 
 export function onLogin() {
   const form = document.querySelector("#loginForm");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
 
   if (form) {
+    validateField(emailInput, isValidEmail, "Must be a valid noroff.no or stud.noroff.no email.");
+    validateField(passwordInput, isValidPassword, "Password must be 8–30 characters.");
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -37,7 +44,6 @@ export function onLogin() {
         return false;
       } catch (error) {
         console.error("Login error:", error);
-        alert("An error occurred while loggin in. Please try again.");
       } finally {
         submitButton.disabled = false;
         submitButton.textContent = "Login";

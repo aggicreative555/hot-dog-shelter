@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
+    <link rel="stylesheet" href="/dist/assets/app-DGemYLPX.css" />
   </head>
 
   <body>
-    <h1>Login</h1>
+    <h1 class="text-red-100 text-center bg-red-100">Login</h1>
     <div id="userSuccess" role="alert" aria-live="polite"></div>
     <form name="login" id="loginForm" aria-describedby="userSuccess">
       <fieldset>
-        <legend>Login to your account</legend>
-
+        <legend>Log into your account</legend>
         <div>
           <label for="email">Email</label>
           <input
@@ -30,8 +30,8 @@
             inputmode="email"
             autocomplete="email"
           />
+          <p class="error-message" aria-live="polite"></p>
         </div>
-
         <div>
           <label for="password">Password</label>
           <input
@@ -47,10 +47,14 @@
             aria-label="Password"
             inputmode="text"
             autocomplete="current-password"/>
+            <p class="error-message" aria-live="polite"></p>
         </div>
       </fieldset>
-      <a href="/auth/register/">Register</a>
       <button type="submit">Login</button>
     </form>
+    <div class="">
+      <h2>Want to become a member?</h2>
+      <a href="/auth/register/">Register</a>
+    </div>
   </body>
 </html>

@@ -8,76 +8,150 @@
   </head>
   <body>
     <h1>Create Post</h1>
-    <div id="userSuccess"></div>
-    <form id="createPost">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="species">Species</label>
-      <select id="species" name="species" required>
-        <option value="">Select a species</option>
-        <option value="cat">Cat</option>
-        <option value="dog">Dog</option>
-        <option value="lizard">Lizard</option>
-        <option value="snake">Snake</option>
-        <option value="rat">Rat</option>
-        <option value="mouse">Mouse</option>
-        <option value="hamster">Hamster</option>
-        <option value="bird">Bird</option>
-      </select>
-
-      <label for="breed">Breed</label>
-      <input type="text" id="breed" name="breed" />
-
-      <label for="age">Age</label>
-      <input type="text" id="age" name="age" required/>
-
-      
-      <label for="size">Size</label>
-      <input type="text" id="size" name="size" required />
-
-      <label for="description">Description</label>
-      <textarea id="description" name="description" required></textarea>
-
-
-      <label for="gender">Gender</label>
-      <select id="gender" name="gender">
-        <option value="">Select a gender</option>
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-        <option value="unknown">Unknown</option>
-      </select>
-
-      <label for="color">Color</label>
-      <select id="color" name="color">
-        <option value="">Select a color</option>
-        <option value="black">Black</option>
-        <option value="white">White</option>
-        <option value="brown">Brown</option>
-        <option value="gray">Gray</option>
-        <option value="orange">Orange</option>
-        <option value="golden">Golden</option>
-        <option value="cream">Cream</option>
-        <option value="spotted">Spotted</option>
-        <option value="mixed">Mixed</option>
-      </select>
-
-      <label for="location">Location</label>
-      <input type="text" id="location" name="location" required />
-
-      <label for="adoptionStatus">Adoption Status</label>
-      <select id="adoptionStatus" name="adoptionStatus">
-        <option value="available">Available</option>
-        <option value="adopted">Adopted</option>
-        <option value="pending">Pending</option>
-      </select>
-
-      <label for="image-url">Image URL</label>
-      <input type="url" id="image-url" name="image.url" />
-
-      <label for="image-alt">Image Alt Text</label>
-      <input type="text" id="image-alt" name="image.alt" />
-
+    <img id="image-preview" alt="" style="display:none;" class="mt-4 w-64 h-64 object-cover rounded" />
+    <form id="createPost" aria-labelledby="formTitle">
+      <h1 id="formTitle">Create Post</h1>
+      <div id="userSuccess" aria-live="polite"></div>
+      <fieldset>
+        <legend>Animal Details</legend>
+  
+        <label for="name">Name</label>
+        <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required
+        pattern="^[\w\s-]{1,30}$"
+        placeholder="e.g. Bella"
+        title="Only letters, numbers, spaces and dashes (max 30 characters)"
+        aria-describedby="userSuccess"
+        autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
+        <label for="species">Species</label>
+        <select id="species" name="species" aria-describedby="userSuccess" required>
+          <option value="">Select a species</option>
+          <option value="cat">Cat</option>
+          <option value="dog">Dog</option>
+          <option value="lizard">Lizard</option>
+          <option value="snake">Snake</option>
+          <option value="rat">Rat</option>
+          <option value="mouse">Mouse</option>
+          <option value="hamster">Hamster</option>
+          <option value="bird">Bird</option>
+          <option value="snail">Snail</option>
+        </select>
+        <p class="error-message" aria-live="polite"></p>
+        <label for="age">Age</label>
+        <input 
+        type="number" 
+        id="age" 
+        name="age" 
+        required
+        min="0" max="99"
+        placeholder="e.g. 2"
+        title="Only numbers allowed"
+        inputmode="numeric"
+        aria-describedby="userSuccess"
+        autocomplete="off" />
+        <label for="description">Description</label>
+        <textarea 
+        id="description" 
+        name="description" 
+        required   
+        placeholder="Tell us more about this animal"     
+        minlength="10"         
+        maxlength="300"      
+        title="Please write at least 10 characters."
+        autocomplete="off"></textarea>
+        <p class="error-message" aria-live="polite"></p>
+        <label for="location">Location</label>
+        <input 
+        type="text" 
+        id="location" 
+        name="location" 
+        required  
+        minlength="1"         
+        maxlength="30"  
+        pattern="^[\w\s,.-]{2,50}$"
+        placeholder="e.g. Oslo, Norway"
+        title="Please enter a valid location"
+        autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select a gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="unknown">Unknown</option>
+        </select>
+        <p class="error-message" aria-live="polite"></p>
+        <label for="adoptionStatus">Adoption Status</label>
+        <select id="adoptionStatus" name="adoptionStatus" required>
+          <option value="available">Available</option>
+          <option value="adopted">Adopted</option>
+          <option value="pending">Pending</option>
+        </select>
+        <p class="error-message" aria-live="polite"></p>
+      </fieldset>
+  
+      <fieldset>
+        <legend>Optional Information</legend>
+        <label for="breed">Breed</label>
+        <input 
+        type="text" 
+        id="breed" 
+        name="breed"
+        minlength="3"         
+        maxlength="30"  
+        pattern="^[\w\s-]{1,30}$"
+        placeholder="e.g. Labrador Retriever"
+        title="Breed may include letters and spaces"
+        autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
+        <label for="size">Size</label>
+        <input 
+        type="text" 
+        id="size" 
+        name="size"
+        minlength="3"         
+        maxlength="10"  
+        placeholder="May be in centimeters, meters or inches."
+        title="Enter the size of your pet ending with cm, m or inch."
+        autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
+        <label for="color">Color</label>
+        <select id="color" name="color">
+          <option value="">Select a color</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+          <option value="brown">Brown</option>
+          <option value="gray">Gray</option>
+          <option value="orange">Orange</option>
+          <option value="golden">Golden</option>
+          <option value="cream">Cream</option>
+          <option value="spotted">Spotted</option>
+          <option value="mixed">Mixed</option>
+        </select>
+        <p class="error-message" aria-live="polite"></p>
+        <label for="image-url">Image URL</label>
+        <input
+        type="url" 
+        id="image-url" 
+        name="image.url"
+        placeholder="https://example.com/image.jpg"
+        title="Must be a valid URL to an image"
+        autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
+        <label for="image-alt">Image Alt Text</label>
+        <input 
+        type="text" 
+        id="image-alt" 
+        name="image.alt"    
+        placeholder="e.g. Black cat with green eyes"  
+        title="Describe the image for accessibility"
+        autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
+      </fieldset>
       <button type="submit">Create Post</button>
     </form>
   </body>

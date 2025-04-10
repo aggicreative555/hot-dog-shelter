@@ -37,7 +37,6 @@ export function onRegister() {
         form.reset();
       } catch (error) {
         console.error("Error registering user:", error);
-        alert("An error occurred while registering. Please try again.");
       } finally {
         submitButton.disabled = false;
         submitButton.textContent = "Register";

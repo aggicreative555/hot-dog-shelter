@@ -11,7 +11,7 @@ import { headers } from "../headers";
  * @param {Object} data - The registration data.
  * @param {string} data.name - The user's name (required).
  * @param {string} data.email - The user's email address (required).
- * @param {string} data.password - The user's
+ * @param {string} data.password - The user's password (required).
  *
  * @returns {Promise<Object>} A promise that resolves to the user's registration response.
  *
