@@ -1,12 +1,16 @@
 export default {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    './index.html',
+    "./**/*.html",
+    './src/**/*.{js,ts,jsx,tsx}',
+    '!./node_modules/**/*',
+  ],
+
   theme: {
-    extend: {},
+    extend: {
+    },
   },
-  variants: {
-    extend: {},
-  },
+
+  darkMode: "selector",
   plugins: [],
-}
+};

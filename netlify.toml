@@ -1,2 +1,11 @@
 [build.environment]
 SECRETS_SCAN_OMIT_KEYS = "VITE_API_KEY"
+
+[build]
+    command = "vite build"
+    publish = "dist"
+
+[dev]
+    command = "vite"
+    targetPort = 3000
+    port = 8888
