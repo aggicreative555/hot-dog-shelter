@@ -33,7 +33,7 @@ export function onLogin() {
       }
 
       submitButton.disabled = true;
-      submitButton.textContent = "Loggin in...";
+      submitButton.textContent = "Logging in...";
 
       const formData = new FormData(form);
       const email = formData.get("email");
