@@ -21,9 +21,11 @@
         id="name" 
         name="name" 
         required
-        pattern="^[\w\s-]{1,30}$"
-        placeholder="e.g. Bella"
-        title="Only letters, numbers, spaces and dashes (max 30 characters)"
+        pattern="^[A-Za-z ]{2,30}$"
+        minlength="2"         
+        maxlength="30"   
+        placeholder="Bella"
+        title="Only letters, max 30 characters"
         aria-describedby="userSuccess"
         autocomplete="off" />
         <p class="error-message" aria-live="polite"></p>
@@ -40,7 +42,6 @@
           <option value="bird">Bird</option>
           <option value="snail">Snail</option>
         </select>
-        <p class="error-message" aria-live="polite"></p>
         <label for="age">Age</label>
         <input 
         type="number" 
@@ -48,20 +49,21 @@
         name="age" 
         required
         min="0" max="99"
-        placeholder="e.g. 2"
-        title="Only numbers allowed"
+        placeholder="2"
+        title="Only numbers"
         inputmode="numeric"
         aria-describedby="userSuccess"
         autocomplete="off" />
+        <p class="error-message" aria-live="polite"></p>
         <label for="description">Description</label>
         <textarea 
         id="description" 
         name="description" 
         required   
-        placeholder="Tell us more about this animal"     
+        placeholder="Tell us more about yout pet"     
         minlength="10"         
         maxlength="300"      
-        title="Please write at least 10 characters."
+        title="Please write from 10 - 300 characters."
         autocomplete="off"></textarea>
         <p class="error-message" aria-live="polite"></p>
         <label for="location">Location</label>
@@ -69,14 +71,22 @@
         type="text" 
         id="location" 
         name="location" 
+        list ="locationOptions"
         required  
         minlength="1"         
         maxlength="30"  
-        pattern="^[\w\s,.-]{2,50}$"
-        placeholder="e.g. Oslo, Norway"
-        title="Please enter a valid location"
+        pattern="^[A-Za-z ]{1,30}$"
+        placeholder="Oslo"
+        title="Please enter a valid location (max 30 charcaters)"
         autocomplete="off" />
         <p class="error-message" aria-live="polite"></p>
+        <datalist id="locationOptions">
+          <option value="Oslo">
+          <option value="Bergen">
+          <option value="Stavanger">
+          <option value="Trondheim">
+          <option value="Svalbard">
+        </datalist>
         <label for="gender">Gender</label>
         <select id="gender" name="gender" required>
           <option value="">Select a gender</option>
@@ -84,16 +94,13 @@
           <option value="male">Male</option>
           <option value="unknown">Unknown</option>
         </select>
-        <p class="error-message" aria-live="polite"></p>
         <label for="adoptionStatus">Adoption Status</label>
         <select id="adoptionStatus" name="adoptionStatus" required>
           <option value="available">Available</option>
           <option value="adopted">Adopted</option>
           <option value="pending">Pending</option>
         </select>
-        <p class="error-message" aria-live="polite"></p>
       </fieldset>
-  
       <fieldset>
         <legend>Optional Information</legend>
         <label for="breed">Breed</label>
@@ -103,8 +110,8 @@
         name="breed"
         minlength="3"         
         maxlength="30"  
-        pattern="^[\w\s-]{1,30}$"
-        placeholder="e.g. Labrador Retriever"
+        pattern="^[A-Za-z ]{3,30}$"
+        placeholder="Labrador Retriever"
         title="Breed may include letters and spaces"
         autocomplete="off" />
         <p class="error-message" aria-live="polite"></p>
@@ -113,12 +120,21 @@
         type="text" 
         id="size" 
         name="size"
+        list = "sizeOptions"
         minlength="3"         
         maxlength="10"  
-        placeholder="May be in centimeters, meters or inches."
-        title="Enter the size of your pet ending with cm, m or inch."
+        pattern = "^\d+(?:[.,]\d+)?\s?(kg|lbs|pounds|kilograms|g|grams)$"
+        placeholder="May be in kg, g, lbs or pounds"
+        title="Enter the weight of your pet ending with kg, g, lbs or pounds"
         autocomplete="off" />
         <p class="error-message" aria-live="polite"></p>
+        <datalist id="sizeOptions">
+          <option value="1 kg">
+          <option value="2 kg">
+          <option value="5 kg">
+          <option value="10 kg">
+          <option value="10 lbs">
+        </datalist>
         <label for="color">Color</label>
         <select id="color" name="color">
           <option value="">Select a color</option>
@@ -138,16 +154,19 @@
         type="url" 
         id="image-url" 
         name="image.url"
+        pattern= "^https:\/\/[^\s]+$"
         placeholder="https://example.com/image.jpg"
-        title="Must be a valid URL to an image"
+        title="Must be a valid image URL starting with http(s) and ending in .jpg, .jpeg, .png, .gif, or .webp"
         autocomplete="off" />
         <p class="error-message" aria-live="polite"></p>
         <label for="image-alt">Image Alt Text</label>
         <input 
         type="text" 
         id="image-alt" 
-        name="image.alt"    
-        placeholder="e.g. Black cat with green eyes"  
+        name="image.alt"
+        minlength="2"
+        maxlength="50" 
+        placeholder="Black cat with green eyes"  
         title="Describe the image for accessibility"
         autocomplete="off" />
         <p class="error-message" aria-live="polite"></p>
