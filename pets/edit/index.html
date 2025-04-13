@@ -9,23 +9,24 @@
   </head>
 
   <body>
-    <h1>Edit Post</h1>
-    <form id="editPost" aria-labelledby="formTitle">
+    <h1 id="formTitle">Edit Post</h1>
+    <form id="updateForm" aria-labelledby="formTitle">
       <div id="userSuccess" aria-live="polite"></div>
       <fieldset>
         <legend>Animal Details</legend>
-  
         <label for="name">Name</label>
         <input 
         type="text" 
         id="name" 
         name="name" 
         required
-        pattern="^[\w\s-]{1,30}$"
-        placeholder="e.g. Bella"
-        title="Only letters, numbers, spaces and dashes (max 30 characters)"
+        pattern="^[A-Za-z ]{2,30}$"
+        minlength="2"         
+        maxlength="30"   
+        title="Only letters, max 30 characters"
         aria-describedby="userSuccess"
-        autocomplete="off" />
+        autocomplete="name"/>
+        <p class="error-message" aria-live="polite"></p>
         <label for="species">Species</label>
         <select id="species" name="species" aria-describedby="userSuccess" required>
           <option value="">Select a species</option>
@@ -46,33 +47,41 @@
         name="age" 
         required
         min="0" max="99"
-        placeholder="e.g. 2"
-        title="Only numbers allowed"
+        title="Only numbers"
         inputmode="numeric"
         aria-describedby="userSuccess"
-        autocomplete="off" />
+        autocomplete="on" />
+        <p class="error-message" aria-live="polite"></p>
         <label for="description">Description</label>
         <textarea 
         id="description" 
         name="description" 
-        required   
-        placeholder="Tell us more about this animal"     
+        required    
         minlength="10"         
         maxlength="300"      
-        title="Please write at least 10 characters."
+        title="Please write from 10 - 300 characters."
         autocomplete="off"></textarea>
+        <p class="error-message" aria-live="polite"></p>
         <label for="location">Location</label>
         <input 
         type="text" 
         id="location" 
         name="location" 
+        list ="locationOptions"
         required  
         minlength="1"         
         maxlength="30"  
-        pattern="^[\w\s,.-]{2,50}$"
-        placeholder="e.g. Oslo, Norway"
-        title="Please enter a valid location"
-        autocomplete="off" />
+        pattern="^[A-Za-z ]{1,30}$"
+        title="Please enter a valid location (max 30 charcaters)"
+        autocomplete="on" />
+        <p class="error-message" aria-live="polite"></p>
+        <datalist id="locationOptions">
+          <option value="Oslo">
+          <option value="Bergen">
+          <option value="Stavanger">
+          <option value="Trondheim">
+          <option value="Svalbard">
+        </datalist>
         <label for="gender">Gender</label>
         <select id="gender" name="gender" required>
           <option value="">Select a gender</option>
@@ -87,7 +96,6 @@
           <option value="pending">Pending</option>
         </select>
       </fieldset>
-  
       <fieldset>
         <legend>Optional Information</legend>
         <label for="breed">Breed</label>
@@ -97,20 +105,29 @@
         name="breed"
         minlength="3"         
         maxlength="30"  
-        pattern="^[\w\s-]{1,30}$"
-        placeholder="e.g. Labrador Retriever"
+        pattern="^[A-Za-z ]{3,30}$"
         title="Breed may include letters and spaces"
-        autocomplete="off" />
+        autocomplete="on" />
+        <p class="error-message" aria-live="polite"></p>
         <label for="size">Size</label>
         <input 
         type="text" 
         id="size" 
         name="size"
+        list = "sizeOptions"
         minlength="3"         
         maxlength="10"  
-        placeholder="May be in centimeters, meters or inches."
-        title="Enter the size of your pet ending with cm, m or inch."
-        autocomplete="off" />
+        pattern = "^\d+(?:[.,]\d+)?\s?(kg|lbs|pounds|kilograms|g|grams)$"
+        title="Enter the weight of your pet ending with kg, g, lbs or pounds"
+        autocomplete="on" />
+        <p class="error-message" aria-live="polite"></p>
+        <datalist id="sizeOptions">
+          <option value="1 kg">
+          <option value="2 kg">
+          <option value="5 kg">
+          <option value="10 kg">
+          <option value="10 lbs">
+        </datalist>
         <label for="color">Color</label>
         <select id="color" name="color">
           <option value="">Select a color</option>
@@ -124,22 +141,26 @@
           <option value="spotted">Spotted</option>
           <option value="mixed">Mixed</option>
         </select>
+        <p class="error-message" aria-live="polite"></p>
         <label for="image-url">Image URL</label>
         <input
         type="url" 
         id="image-url" 
         name="image.url"
-        placeholder="https://example.com/image.jpg"
-        title="Must be a valid URL to an image"
-        autocomplete="off" />
+        pattern= "^https:\/\/[^\s]+$"
+        title="Must be a valid image URL starting with http(s) and ending in .jpg, .jpeg, .png, .gif, or .webp"
+        autocomplete="on" />
+        <p class="error-message" aria-live="polite"></p>
         <label for="image-alt">Image Alt Text</label>
         <input 
         type="text" 
         id="image-alt" 
-        name="image.alt"    
-        placeholder="e.g. Black cat with green eyes"  
+        name="image.alt"
+        minlength="2"
+        maxlength="50" 
         title="Describe the image for accessibility"
-        autocomplete="off" />
+        autocomplete="on" />
+        <p class="error-message" aria-live="polite"></p>
       </fieldset>
       <button type="submit">Update Post</button>
     </form>
