@@ -7,14 +7,12 @@
     <script type="module" src="/src/app.js"></script>
   </head>
   <body>
-    <h1>Create Post</h1>
+    <h1 id="formTitle">Create Post</h1>
     <img id="image-preview" alt="" style="display:none;" class="mt-4 w-64 h-64 object-cover rounded" />
     <form id="createPost" aria-labelledby="formTitle">
-      <h1 id="formTitle">Create Post</h1>
       <div id="userSuccess" aria-live="polite"></div>
       <fieldset>
         <legend>Animal Details</legend>
-  
         <label for="name">Name</label>
         <input 
         type="text" 
@@ -27,7 +25,7 @@
         placeholder="Bella"
         title="Only letters, max 30 characters"
         aria-describedby="userSuccess"
-        autocomplete="off" />
+        autocomplete="name"/>
         <p class="error-message" aria-live="polite"></p>
         <label for="species">Species</label>
         <select id="species" name="species" aria-describedby="userSuccess" required>
@@ -53,7 +51,7 @@
         title="Only numbers"
         inputmode="numeric"
         aria-describedby="userSuccess"
-        autocomplete="off" />
+        autocomplete="on" />
         <p class="error-message" aria-live="polite"></p>
         <label for="description">Description</label>
         <textarea 
@@ -78,7 +76,7 @@
         pattern="^[A-Za-z ]{1,30}$"
         placeholder="Oslo"
         title="Please enter a valid location (max 30 charcaters)"
-        autocomplete="off" />
+        autocomplete="on" />
         <p class="error-message" aria-live="polite"></p>
         <datalist id="locationOptions">
           <option value="Oslo">
@@ -113,7 +111,7 @@
         pattern="^[A-Za-z ]{3,30}$"
         placeholder="Labrador Retriever"
         title="Breed may include letters and spaces"
-        autocomplete="off" />
+        autocomplete="on" />
         <p class="error-message" aria-live="polite"></p>
         <label for="size">Size</label>
         <input 
@@ -126,7 +124,7 @@
         pattern = "^\d+(?:[.,]\d+)?\s?(kg|lbs|pounds|kilograms|g|grams)$"
         placeholder="May be in kg, g, lbs or pounds"
         title="Enter the weight of your pet ending with kg, g, lbs or pounds"
-        autocomplete="off" />
+        autocomplete="on" />
         <p class="error-message" aria-live="polite"></p>
         <datalist id="sizeOptions">
           <option value="1 kg">
@@ -157,7 +155,7 @@
         pattern= "^https:\/\/[^\s]+$"
         placeholder="https://example.com/image.jpg"
         title="Must be a valid image URL starting with http(s) and ending in .jpg, .jpeg, .png, .gif, or .webp"
-        autocomplete="off" />
+        autocomplete="on" />
         <p class="error-message" aria-live="polite"></p>
         <label for="image-alt">Image Alt Text</label>
         <input 
@@ -168,7 +166,7 @@
         maxlength="50" 
         placeholder="Black cat with green eyes"  
         title="Describe the image for accessibility"
-        autocomplete="off" />
+        autocomplete="on" />
         <p class="error-message" aria-live="polite"></p>
       </fieldset>
       <button type="submit">Create Post</button>

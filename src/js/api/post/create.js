@@ -47,25 +47,11 @@ export async function createPost(body) {
   });
 
   const post = await response.json();
-  const userSuccess = document.getElementById("userSuccess");
 
-  if (response.ok) {
-    const postId = post.data?.id;
-
-    if (userSuccess) {
-      userSuccess.style.display = "block";
-      userSuccess.innerHTML = `Post created successfully!`;
-    } else {
-      console.error("userSuccess element not found");
-    }
-
-    if (postId) {
-      setTimeout(() => {
-        window.location.replace(`/pets/?id=${postId}`);
-      }, 2000);
-    }
+  if (!response.ok) {
+    console.error(`Failed to create post:${post?.message}`);
   } else {
-    console.error("Error creating post:", post);
+    console.error("Post created successfully:", post);
   }
 
   return post;

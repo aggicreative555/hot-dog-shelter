@@ -13,7 +13,6 @@ export function updateButton(postId) {
   }
   const updateButton = document.createElement("button");
   updateButton.innerHTML = "Update post";
-  console.log(postId);
 
   updateButton.addEventListener("click", () => {
     window.location.href = `/pets/edit/?id=${postId}`;

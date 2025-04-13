@@ -10,7 +10,6 @@ import { createPost } from "../../api/post/create";
 
 export async function onCreatePost(event) {
   event.preventDefault();
-
   const form = event.target;
   const formData = new FormData(form);
   const postData = Object.fromEntries(formData.entries());
@@ -20,6 +19,13 @@ export async function onCreatePost(event) {
     url: formData.get("image.url"),
     alt: formData.get("image.alt"),
   };
+
+  const age = Number(postData.age);
+  if (isNaN(age)) {
+    console.error("Age must be a valid number");
+    return;
+  }
+
 
   const body = {
     name: postData.name,
@@ -41,13 +47,17 @@ export async function onCreatePost(event) {
     if (newPost && newPost.data && newPost.data.id) {
       messageContainer.innerHTML = "Post created successfully!";
       // Redirect to the single post view with the new post ID
-      window.location.href = `/pets/?id=${newPost.data.id}`;
+      setTimeout(() => {
+        window.location.href = `/pets/?id=${newPost.data.id}`;
+      }, 2000);
     } else {
       throw new Error("Post creation succeeded but no ID was returned.");
     }
   } catch (error) {
     console.error("Error creating post:", error);
     messageContainer.innerHTML = "Failed to create post, check your fields and try again";
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   }
 }
