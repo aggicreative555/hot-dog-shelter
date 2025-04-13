@@ -1,3 +1,7 @@
-import { authGuard } from "../../utilities/authGuard";
+import { navToggler } from "../../utilities/navToggler";
 
-authGuard();
+function initializeHome() {
+    navToggler();
+}
+
+initializeHome();
