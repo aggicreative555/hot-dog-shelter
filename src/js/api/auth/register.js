@@ -61,7 +61,7 @@ export async function register({ name, email, password }) {
 
       setTimeout(() => {
         userSuccess.innerHTML = ""; // Clear
-      }, 2000);
+      }, 4000);
     }
   } catch (error) {
     console.error("Registration failed:", error);

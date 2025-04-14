@@ -1,8 +1,16 @@
 import { register } from "../../api/auth/register";
+import { validateField } from "../global/validateField";
+import {
+  isValidConfirmPassword,
+  isValidEmail,
+  isValidPassword,
+  isValidUserName,
+} from "../global/validators";
 /**
- * Handles the register form submission by passing data to the register function.
- * Disables the submit button during submission to prevent duplicate requests.
- * Displays success or error messages accordingly.
+ * Initializes validation and handles submission for the register form.
+ * Validates all inputs with real-time feedback, including confirm password matching.
+ * Prevents confirm password from being sent to the API.
+ * Disables the submit button during submission to avoid duplicate requests.
  *
  *
  * @function onRegister
@@ -12,8 +20,33 @@ import { register } from "../../api/auth/register";
 
 export function onRegister() {
   const form = document.querySelector("#registerForm");
+  const usernameInput = document.getElementById("username");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirm-password");
 
   if (form) {
+    validateField(
+      usernameInput,
+      isValidUserName,
+      "Please create a username that includes letters, numbers and / or dashes. Max 30 characters.",
+    );
+    validateField(
+      emailInput,
+      isValidEmail,
+      "Please write an email that is a valid noroff.no or stud.noroff.no email.",
+    );
+    validateField(
+      passwordInput,
+      isValidPassword,
+      "The password must be 8 – 30 characters and can include special characters.",
+    );
+    validateField(
+      confirmPasswordInput,
+      isValidConfirmPassword(confirmPasswordInput, passwordInput),
+      "Passwords must match",
+    );
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -24,13 +57,16 @@ export function onRegister() {
         return;
       }
 
+      // Disable submit to prevent spamming.
       submitButton.disabled = true;
       submitButton.textContent = "Registering user...";
 
       const formData = new FormData(form);
-      const name = formData.get("name");
+      const name = formData.get("username");
       const email = formData.get("email");
       const password = formData.get("password");
+
+      console.log(name);
 
       try {
         await register({ name, email, password });

@@ -11,26 +11,26 @@
   <body>
     <h1>Register</h1>
     <div id="userSuccess" role="alert" aria-live="polite"></div>
-
     <form name="register" id="registerForm" aria-describedby="userSuccess">
       <fieldset>
         <legend>Register your profile</legend>
 
         <div>
-          <label for="name">Name</label>
+          <label for="username">Name</label>
           <input
-            id="name"
-            name="name"
+            id="username"
+            name="username"
             type="text"
-            placeholder="Username"
+            placeholder="Create a username"
             required
-            maxlength="20"
-            pattern="^[a-zA-Z0-9_]+$"
+            minlength="1"
+            maxlength="30"
+            pattern="^[a-zA-Z0-9_]{1,30}$"
             title="Username can only include letters, numbers, and underscores"
             aria-required="true"
             aria-label="Username"
             inputmode="text"
-            autocomplete="email"/>
+            autocomplete="off"/>
             <p class="error-message" aria-live="polite"></p>
         </div>
 
@@ -47,7 +47,7 @@
             aria-required="true"
             aria-label="Email address"
             inputmode="email"
-            autocomplete="off"/>
+            autocomplete="email"/>
             <p class="error-message" aria-live="polite"></p>
         </div>
 
@@ -74,7 +74,7 @@
           <input
             id="confirm-password"
             name="confirm-password"
-            type="confirm-password"
+            type="password"
             placeholder="Confirm password"
             required
             minlength="8"

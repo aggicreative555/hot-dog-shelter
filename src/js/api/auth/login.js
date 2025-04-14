@@ -4,7 +4,7 @@ import { headers } from "../headers";
 
 /**
  * Logs in a user using the provided credentials.
- * 
+ *
  * Displays a success message and logs the user in on success.
  * Displays relevant validation errors returned from the API on failure.
  *
@@ -32,14 +32,14 @@ export async function login({ email, password }) {
 
     const result = await response.json();
     const userSuccess = document.getElementById("userSuccess");
-    const errorMessage = 
-    `Login failed. ${result?.errors?.[0]?.message}. Please try again.` ||
-    `Login failed. ${result?.message}. Please try again.` ||
-    "Login failed. Please check that all fields are filled in correctly and try again.";
+    const errorMessage =
+      `Login failed. ${result?.errors?.[0]?.message}. Please try again.` ||
+      `Login failed. ${result?.message}. Please try again.` ||
+      "Login failed. Please check that all fields are filled in correctly and try again.";
 
     if (userSuccess) {
       userSuccess.style.display = "block";
-      userSuccess.innerHTML = ""; // Clear 
+      userSuccess.innerHTML = ""; // Clear
     }
 
     if (response.ok) {
@@ -52,8 +52,8 @@ export async function login({ email, password }) {
       userSuccess.innerHTML = errorMessage;
 
       setTimeout(() => {
-        userSuccess.innerHTML = ""; // Clear 
-      }, 5000);
+        userSuccess.innerHTML = ""; // Clear
+      }, 4000);
     }
 
     const {

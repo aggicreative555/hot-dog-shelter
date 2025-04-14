@@ -2,13 +2,13 @@ import { login } from "../../api/auth/login";
 import { validateField } from "../../ui/global/validateField";
 import { isValidEmail, isValidPassword } from "../../ui/global/validators";
 /**
- * Handles the login form submission by extracting email and password
- * from the form and sending it to the login API function.
- *
- * Disables the submit button during submission to prevent duplicate requests.
- * Displays success or error messages accordingly.
+ * Initializes validation and handles submission for the register form.
+ * Validates all inputs with real-time feedback, including confirm password matching.
+ * Prevents confirm password from being sent to the API.
+ * Disables the submit button during submission to avoid duplicate requests.
  *
  * @function onLogin
+ * @param {Event} event - Form submission event.
  * @throws {Error} If the login form is not found in the DOM.
  */
 
@@ -18,8 +18,16 @@ export function onLogin() {
   const passwordInput = document.getElementById("password");
 
   if (form) {
-    validateField(emailInput, isValidEmail, "Must be a valid noroff.no or stud.noroff.no email.");
-    validateField(passwordInput, isValidPassword, "Password must be 8–30 characters.");
+    validateField(
+      emailInput,
+      isValidEmail,
+      "Must be a valid noroff.no or stud.noroff.no email.",
+    );
+    validateField(
+      passwordInput,
+      isValidPassword,
+      "Password must be 8–30 characters.",
+    );
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();

@@ -4,7 +4,7 @@
  * This function listens for `input` events and validates the input value using the provided test function.
  * If the value is invalid, it sets the `aria-invalid` attribute, applies red border styling,
  * and displays an error message in a sibling element with the class `error-message`.
- * 
+ *
  * The input should be followed directly by a <p class="error-message"> element for error display.
  *
  * @param {HTMLInputElement | HTMLTextAreaElement} input - The input element to validate.
@@ -13,19 +13,19 @@
  *
  * @example
  * validateField(document.getElementById("email"), isValidEmail, "Please enter a valid email address.");
-*/
+ */
 
 export function validateField(input, testFn, errorMessage) {
-    input.addEventListener("input", () => {
-        const isValid = testFn(input.value);
-        input.setAttribute("aria-invalid", !isValid);
-        input.classList.add("border-solid","border-2");
-        input.classList.toggle("border-green-500", isValid);
-        input.classList.toggle("border-red-500", !isValid);
+  input.addEventListener("input", () => {
+    const isValid = testFn.length === 0 ? testFn() : testFn(input.value);
+    input.setAttribute("aria-invalid", !isValid);
+    input.classList.add("border-solid", "border-2");
+    input.classList.toggle("border-green-500", isValid);
+    input.classList.toggle("border-red-500", !isValid);
 
-        const errorEl = input.nextElementSibling;
-        if (errorEl && errorEl.classList.contains("error-message")) {
-        errorEl.textContent = isValid ? "" : errorMessage;
-        }
-    });
+    const errorEl = input.nextElementSibling;
+    if (errorEl && errorEl.classList.contains("error-message")) {
+      errorEl.textContent = isValid ? "" : errorMessage;
+    }
+  });
 }
