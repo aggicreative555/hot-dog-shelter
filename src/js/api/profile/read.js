@@ -21,6 +21,7 @@ export async function readPostsByOwner() {
   const currentUser = load("userName");
 
   const createPostLink = document.createElement("a");
+  const heading = document.createElement("h2");
   createPostLink.id = "createPostLink";
   createPostLink.href = "/pets/create/";
   createPostLink.innerHTML = "Create a Post";
@@ -47,10 +48,14 @@ export async function readPostsByOwner() {
 
   if (filteredPosts.length === 0) {
     if (userSuccess) {
-      userSuccess.innerHTML = "Make your first post!";
+      userSuccess.appendChild(heading);
+      heading.innerHTML = "Make your first post!";
       userSuccess.appendChild(createPostLink);
     }
   } else {
+    userSuccess.appendChild(heading);
+    heading.innerHTML = "Make a new post";
+    userSuccess.appendChild(createPostLink);
     renderMultiplePosts(filteredPosts, postsContainer);
   }
 }

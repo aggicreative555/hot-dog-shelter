@@ -55,11 +55,12 @@ export async function onUpdatePost(event) {
       messageContainer.innerHTML = "Post successfully updated! Refreshing...";
       setTimeout(() => (window.location.href = `/pets/?id=${id}`), 2000);
     } else {
-      messageContainer.innerHTML = "Failed to update post. Please check your inputs and try again.";
+      messageContainer.innerHTML =
+        "Failed to update post. Please check your inputs and try again.";
     }
   } catch (error) {
     console.error("Update failed:", error);
-    messageContainer.innerHTML = "Something went wrong. Please refresh and try again.";
+    messageContainer.innerHTML =
+      "Something went wrong. Please refresh and try again.";
   }
 }
-

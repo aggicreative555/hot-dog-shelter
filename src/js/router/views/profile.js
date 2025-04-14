@@ -2,9 +2,9 @@ import { authGuard } from "../../utilities/authGuard";
 import { readPostsByOwner } from "../../api/profile/read";
 import { goBackButton } from "../../ui/global/goBackButton";
 import { shareButton } from "../../ui/global/shareButton";
-import { profileTemplate } from "../../ui/profile/profileTemplate";
 import { setupPostClickNavigation } from "../../ui/post/renderPost";
 import { setLogoutListener } from "../../ui/global/logout";
+import { profileTemplate } from "../../ui/components/profileTemplate";
 
 function initializeProfile() {
   authGuard();

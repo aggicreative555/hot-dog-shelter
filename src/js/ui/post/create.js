@@ -6,14 +6,14 @@ import { createPost } from "../../api/post/create";
  * Converts flat form data into the expected API structure (including media).
  *
  * @param {SubmitEvent} event - The form submit event
-*/
+ */
 
 export async function onCreatePost(event) {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
   const postData = Object.fromEntries(formData.entries());
-  const messageContainer = document.getElementById('userSuccess');
+  const messageContainer = document.getElementById("userSuccess");
 
   const image = {
     url: formData.get("image.url"),
@@ -25,7 +25,6 @@ export async function onCreatePost(event) {
     console.error("Age must be a valid number");
     return;
   }
-
 
   const body = {
     name: postData.name,
@@ -55,7 +54,8 @@ export async function onCreatePost(event) {
     }
   } catch (error) {
     console.error("Error creating post:", error);
-    messageContainer.innerHTML = "Failed to create post, check your fields and try again";
+    messageContainer.innerHTML =
+      "Failed to create post, check your fields and try again";
     setTimeout(() => {
       window.location.reload();
     }, 1500);

@@ -1,7 +1,7 @@
 import { navToggler } from "../../utilities/navToggler";
 
 function initializeHome() {
-    navToggler();
+  navToggler();
 }
 
 initializeHome();
