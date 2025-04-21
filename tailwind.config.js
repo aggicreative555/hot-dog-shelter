@@ -11,9 +11,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Niagara Engraved", "serif"], // Display font and titles
-        heading: ["Academy Engraved LET", "serif"], // Titles and headings
-        body: ["Manrope", "sans-serif"], // Body and captions
+        niagara: ["Niagara Engraved", "serif"], // Display font and titles
+        academy: ["Academy Engraved LET", "serif"], // Titles and headings
+        manrope: ["Manrope", "sans-serif"], // Body and captions
+        ibarra: ["Ibarra Real Nova", "serif"], // Display button
+      },
+
+      fontSize: {
+        display: "11.391rem", // Display font and titles
+        h1: "7.594rem", // Display font and titles
+        h2: "5.063rem", // Titles and headings
+        h3: "3.375rem", // Titles and headings
+        h4: "2.25rem", // Titles and headings
+        h5: "1.5rem", // Titles and headings
+        body: "1rem", // Body and captions
+        caption: "0.667rem", // Body and captions
       },
   
       colors: {
