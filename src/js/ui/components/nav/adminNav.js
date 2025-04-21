@@ -16,7 +16,7 @@ export function adminNav() {
   logoContainer.setAttribute("aria-label", "View home page");
   logoContainer.classList.add("block", "w-1/3", "md:w-[10%]");
   const logoImage = document.createElement("img");
-  logoImage.src = "/images/noroff-logo.png";
+  logoImage.src = "/logo/logo-nav-desktop.svg";
   logoImage.alt = "Hot-dog shelter logo";
   logoContainer.appendChild(logoImage);
 
@@ -30,18 +30,17 @@ export function adminNav() {
     "text-base",
   );
 
-  const userLink = document.createElement("div");
-  userLink.href = "/profile/";
+  const userLink = document.createElement('div');
+  userLink.href = '/profile/';
   userLink.setAttribute("aria-label", "View my profile");
   userLink.title = "My Profile";
 
+
   const userIconContainer = document.createElement("div");
   userIconContainer.classList.add("relative", "group");
-  const rawUser = load("user");
+  const rawUser = load("user"); 
   const user = typeof rawUser === "string" ? JSON.parse(rawUser) : rawUser;
-  const {
-    avatar: { url: avatarUrl = "", alt: avatarAlt = "User avatar" } = {},
-  } = user;
+  const { avatar: { url: avatarUrl = "", alt: avatarAlt = "User avatar" } = {} } = user;
   const userIconImage = document.createElement("img");
   userIconImage.src = avatarUrl;
   userIconImage.alt = avatarAlt || "User avatar";
@@ -58,8 +57,8 @@ export function adminNav() {
     "object-cover",
   );
 
-  const username = load("userName");
-  const usernameText = document.createElement("p");
+  const username = load('userName');
+  const usernameText = document.createElement('p');
   usernameText.innerHTML = `${username}`;
 
   const petsLink = document.createElement("a");
@@ -154,9 +153,9 @@ export function adminNav() {
     "justify-center",
     "gap-6",
   );
-  const termsOfUse = document.createElement("li");
+  const termsOfUse = document.createElement("a");
   termsOfUse.textContent = "Terms of Use";
-  const privacyPolicy = document.createElement("li");
+  const privacyPolicy = document.createElement("a");
   privacyPolicy.textContent = "Privacy Policy";
 
   setLogoutListener(pcNav);

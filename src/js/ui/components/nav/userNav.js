@@ -3,28 +3,33 @@ export function userNav() {
 
   headerContainer.classList.add(
     "flex",
-    "justify-between",
     "items-center",
+    "justify-end",
     "w-full",
   );
 
   const logoContainer = document.createElement("a");
   logoContainer.href = "/";
   logoContainer.setAttribute("aria-label", "View home page");
-  logoContainer.classList.add("block", "w-1/3", "md:w-[10%]");
+  logoContainer.classList.add("justify-self-center", "flex-1", "justify-center",);
   const logoImage = document.createElement("img");
-  logoImage.src = "/images/noroff-logo.png";
+  logoImage.src = "/logo/logo-nav-desktop.svg";
   logoImage.alt = "Hot-dog shelter logo";
   logoContainer.appendChild(logoImage);
 
   const pcNav = document.createElement("nav");
-  pcNav.classList.add("hidden", "lg:block", "font-semibold", "text-base");
+  pcNav.classList.add("hidden", "md:flex", "self-stretch", "justify-end", "items-center", "gap-4", "flex-1");
 
+  const petsIcon = document.createElement("img");
+  petsIcon.src = "/icon/custom-arrow-icon.svg";
+  petsIcon.classList.add = "w-fit";
+  petsIcon.alt = "Hot-dog shelter logo";
   const petsLink = document.createElement("a");
   petsLink.setAttribute("aria-label", "View pets available for adoption");
   petsLink.href = "/pets/";
-  petsLink.classList.add("px-8", "py-3", "hover:underline");
+  petsLink.classList.add("px-8", "py-3", "hover:underline", "flex", "gap-2", "w-fit");
   petsLink.textContent = "Pets";
+  petsLink.appendChild(petsIcon);
 
   const loginLink = document.createElement("a");
   loginLink.setAttribute("aria-label", "Go to login page");

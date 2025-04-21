@@ -13,9 +13,9 @@ export function navToggler() {
 
   if (isLoggedIn) {
     const loggedinNav = adminNav();
-    header.appendChild(loggedinNav);
+    header.prepend(loggedinNav);
   } else {
     const notLoggedNav = userNav();
-    header.appendChild(notLoggedNav);
+    header.prepend(notLoggedNav);
   }
 }

@@ -50,3 +50,14 @@
 .caption {
     @apply font-manrope text-h5 capitalize font-semibold;
 }
+
+/* buttons */
+.btn-base {
+@apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] button transition-all duration-100 m-4;
+}
+.btn-primary {
+@apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-1 border-2 border-primary-fur100 group-hover:bg-brown-700  group-hover:border-4 group-hover:outline-4;
+}
+.btn-secondary {
+@apply bg-primary-mayo100 text-brown-800 group-hover:bg-brown-300;
+}
