@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&display=swap");
 
 @font-face {
   font-family: "Academy Engraved LET";
@@ -18,46 +17,46 @@
 /* fonts */
 
 .display-title {
-    @apply font-niagara text-display uppercase;
+  @apply font-niagara text-display uppercase;
 }
 .h1-nigara {
-    @apply font-niagara text-h1 uppercase;
+  @apply font-niagara text-h1 uppercase;
 }
 .h1-academy {
-    @apply font-academy text-h1 uppercase;
+  @apply font-academy text-h1 uppercase;
 }
 .h2 {
-    @apply font-academy text-h2 uppercase;
+  @apply font-academy text-h2 uppercase;
 }
 .h3 {
-    @apply font-niagara text-h3 uppercase;
+  @apply font-niagara text-h3 uppercase;
 }
 .h4 {
-    @apply font-niagara text-h4 uppercase;
+  @apply font-niagara text-h4 uppercase;
 }
 .h5 {
-    @apply font-academy text-h5 lowercase;
+  @apply font-academy text-h5 lowercase;
 }
 .display-button {
-    @apply font-ibarra text-h5 uppercase;
+  @apply font-ibarra text-h5 uppercase;
 }
 .button {
-    @apply font-manrope text-body uppercase font-semibold;
+  @apply font-manrope text-body uppercase font-semibold;
 }
 .body-text {
-    @apply font-manrope text-h5 capitalize;
+  @apply font-manrope text-body capitalize font-medium;
 }
 .caption {
-    @apply font-manrope text-h5 capitalize font-semibold;
+  @apply font-manrope text-caption capitalize font-semibold;
 }
 
 /* buttons */
 .btn-base {
-@apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] button transition-all duration-100 m-4;
+  @apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] button transition-all duration-100 m-4;
 }
 .btn-primary {
-@apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-1 border-2 border-primary-fur100 group-hover:bg-brown-700  group-hover:border-4 group-hover:outline-4;
+  @apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-1 border-2 border-primary-fur100 group-hover:bg-brown-700  group-hover:border-4 group-hover:outline-4;
 }
 .btn-secondary {
-@apply bg-primary-mayo100 text-brown-800 group-hover:bg-brown-300;
+  @apply bg-primary-mayo100 text-brown-800 group-hover:bg-brown-300;
 }
