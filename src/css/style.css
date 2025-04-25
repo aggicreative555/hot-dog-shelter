@@ -44,10 +44,11 @@
   @apply font-manrope text-body uppercase font-semibold;
 }
 .body-text {
-  @apply font-manrope text-body capitalize font-medium;
+  @apply font-manrope text-body capitalize;
 }
+
 .caption {
-  @apply font-manrope text-caption capitalize font-semibold;
+  @apply font-manrope text-caption font-semibold;
 }
 
 /* buttons */
@@ -55,8 +56,34 @@
   @apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] button transition-all duration-100 m-4;
 }
 .btn-primary {
-  @apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-1 border-2 border-primary-fur100 group-hover:bg-brown-700  group-hover:border-4 group-hover:outline-4;
+  @apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-2 border-2 border-primary-fur100 group-hover:bg-brown-700  group-hover:border-4 group-hover:outline-4;
 }
 .btn-secondary {
-  @apply bg-primary-mayo100 text-brown-800 group-hover:bg-brown-300;
+  @apply bg-primary-mayo100 text-brown-800 group-hover:bg-brown-300 px-14 py-4 outline outline-2 border-2 border-primary-fur100  group-hover:border-4 group-hover:outline-4;
+}
+
+.btn-display {
+  @apply bg-accent-mustard100 font-ibarra uppercase text-2xl text-primary-fur100 group-hover:bg-accent-ketchup100 px-14 py-4 outline outline-2 outline-primary-mayo100 outline-offset-4 border-2 border-primary-fur100 group-hover:text-primary-mayo100  group-hover:border-4 group-hover:outline-4;
+}
+
+@layer components {
+  .input-base {
+    @apply w-full px-4 py-2 mb-5 border-solid border-l-4 border-primary-fur100 cursor-pointer 
+      outline outline-2 outline-primary-fur100 outline-offset-2
+       bg-primary-mayo100 text-base transition-all duration-150 
+        focus:outline-4 focus:outline-primary-fur100 focus:border-primary-fur100
+        placeholder:font-manrope placeholder:text-brown-700 placeholder:text-base;
+  }
+
+  .label-base {
+    @apply block mb-1 caption text-primary-fur100;
+  }
+
+  .error-text {
+    @apply body-text text-accent-ketchup100 mt-1 font-medium;
+  }
+
+  .input-wrapper {
+    @apply flex flex-col gap-2 w-full h-fit;
+  }
 }

@@ -19,9 +19,9 @@ export function validateField(input, testFn, errorMessage) {
   input.addEventListener("input", () => {
     const isValid = testFn.length === 0 ? testFn() : testFn(input.value);
     input.setAttribute("aria-invalid", !isValid);
-    input.classList.add("border-solid", "border-2");
-    input.classList.toggle("border-green-500", isValid);
-    input.classList.toggle("border-red-500", !isValid);
+    input.classList.add("outline", "outline-4");
+    input.classList.toggle("outline-accent-correct100", isValid);
+    input.classList.toggle("outline-accent-ketchup100", !isValid);
 
     const errorEl = input.nextElementSibling;
     if (errorEl && errorEl.classList.contains("error-message")) {

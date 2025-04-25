@@ -1,4 +1,5 @@
 import { onCreatePost } from "../../ui/post/create";
+import { navToggler } from "../../utilities/navToggler";
 import { authGuard } from "../../utilities/authGuard";
 import { setupImagePreview } from "../../ui/global/imagePreview";
 import { validateField } from "../../ui/global/validateField";
@@ -15,6 +16,7 @@ import {
 
 function initializePostCreate() {
   authGuard();
+  navToggler();
 
   const form = document.querySelector("#createPost");
   // setupImagePreview();

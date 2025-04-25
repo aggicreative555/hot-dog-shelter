@@ -7,7 +7,7 @@ export function buttonBase({ type = "primary", label = "Click", href }) {
       btn-base
       ${type === "primary" ? "btn-primary" : ""}
       ${type === "secondary" ? "btn-secondary" : ""}
-      ${type === "display" ? "text-6xl tracking-wide uppercase font-display" : ""}
+      ${type === "display" ? "btn-display" : ""}
     `;
 
   el.textContent = label;
