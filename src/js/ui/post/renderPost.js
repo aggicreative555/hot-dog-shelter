@@ -1,24 +1,4 @@
-export function renderPost(post) {
-  return `
-      <div class="post-item" data-id="${post.id}">
-        <h3>${post.name || "Unnamed"}</h3>
-        <p><strong>Species:</strong> ${post.species || "N/A"}</p>
-        <p><strong>Breed:</strong> ${post.breed || "N/A"}</p>
-        <p><strong>Age:</strong> ${post.age || "N/A"}</p>
-        <p><strong>Gender:</strong> ${post.gender || "N/A"}</p>
-        <p><strong>Color:</strong> ${post.color || "N/A"}</p>
-        <p><strong>Description:</strong> ${post.description || "N/A"}</p>
-        <p><strong>Location:</strong> ${post.location || "N/A"}</p>
-        <p><strong>Status:</strong> ${post.adoptionStatus || "N/A"}</p>
-        ${
-          post.image?.url
-            ? `<img src="${post.image.url}" alt="${post.image.alt || "Pet image"}" width="200" />`
-            : ""
-        }
-      </div>
-      <hr/>
-    `;
-}
+import { singlePost } from "../components/post/singlePost";
 
 export function setupPostClickNavigation() {
   const container = document.getElementById("postsContainer");
@@ -41,6 +21,18 @@ export function renderMultiplePosts(posts) {
     console.error(`Container with ID '${postsContainer}' not found.`);
     return;
   }
+  container.innerHTML = "";
 
-  container.innerHTML = posts.map(renderPost).join("");
+  container.classList.add(
+    "flex",
+    "flex-wrap",
+    "justify-center",
+    "mt-10",
+    "gap-10",
+  );
+
+  posts.forEach((post) => {
+    const postElement = singlePost(post);
+    container.appendChild(postElement);
+  });
 }

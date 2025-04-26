@@ -55,7 +55,7 @@ export default {
         accent: {
           ketchup100: "#591610", // Red
           mustard100: "#A56E21", // Yellow
-          correct100: "#033720", // Green
+          correct100: "#12633F", // Green
         },
       },
     },

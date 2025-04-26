@@ -4,12 +4,13 @@ import { goBackButton } from "../../ui/global/goBackButton";
 import { shareButton } from "../../ui/global/shareButton";
 import { updateButton } from "../../ui/global/updateButton";
 import { load, save } from "../../utilities/authGuard";
+import { navToggler } from "../../utilities/navToggler";
 import {
-  renderPost,
   renderMultiplePosts,
   setupPostClickNavigation,
 } from "../../ui/post/renderPost";
 import { searchBar, setupLiveSearch } from "../../ui/global/search";
+import { postIdCard } from "../../ui/components/post/postIdPost";
 
 /**
  * @async
@@ -26,6 +27,14 @@ import { searchBar, setupLiveSearch } from "../../ui/global/search";
  */
 
 export async function loadPosts() {
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  if (header && footer) {
+    navToggler();
+  } else {
+    console.error("No #footer or #header element located in the DOM");
+  }
+
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("id");
   const container = document.getElementById("postsContainer");
@@ -52,8 +61,8 @@ export async function loadPosts() {
       const post = await readPost(postId);
       const postOwnerName = post.owner.name;
       const currentUserName = load("userName");
-
-      container.innerHTML = renderPost(post);
+      container.innerHTML = "";
+      container.appendChild(postIdCard(post));
       goBackButton();
       shareButton();
       if (currentUserName === postOwnerName) {
