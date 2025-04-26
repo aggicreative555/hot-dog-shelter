@@ -9,13 +9,18 @@
     <script src="https://kit.fontawesome.com/6ef3e8b9dc.js" crossorigin="anonymous"></script>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <h1>Post Page</h1>
-    <div id="postListSection">
-      <h2>Posts</h2>
+  <body class="bg-brown-100">
+    <header id="header"></header>
+    <main class="mx-8 lg:m-40 flex flex-col items-center justify-center align-middle transition-all duration-150 my-10 gap-4">
+      <div class="container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[8px] bg-accent-ketchup100 text-primary-mayo100">
+        <h1 class="flex flex-col justify-center align-middle text-center display-title">pets</h1>
+      </div>
       <div id="searchContainer"></div>
       <div id="userSuccess"></div>
-      <div id="postsContainer"></div>
-    </div>
+      <div id="postListSection">
+        <div id="postsContainer"></div>
+      </div>
+    </main>
+    <footer id="footer"></footer>
   </body>
 </html>

@@ -5,9 +5,19 @@ import { shareButton } from "../../ui/global/shareButton";
 import { setupPostClickNavigation } from "../../ui/post/renderPost";
 import { setLogoutListener } from "../../ui/global/logout";
 import { profileTemplate } from "../../ui/components/profileTemplate";
+import { navToggler } from "../../utilities/navToggler";
 
 function initializeProfile() {
   authGuard();
+
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  if (header && footer) {
+    navToggler();
+  } else {
+    console.error("No #footer or #header element located in the DOM");
+  }
+
   const container = document.getElementById("postsContainer");
   const profileContainer = document.getElementById("profileContainer");
 

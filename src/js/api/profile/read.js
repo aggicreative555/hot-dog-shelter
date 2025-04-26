@@ -20,11 +20,33 @@ export async function readPostsByOwner() {
   const postsContainer = document.getElementById("postsContainer");
   const currentUser = load("userName");
 
+  const borderContainer = document.createElement("div");
+  borderContainer.classList.add(
+    "text-primary-fur100",
+    "border-solid",
+    "border-primary-fur100",
+    "border-2",
+    "flex",
+    "justify-center",
+    "items-center",
+    "align-middle",
+    "m-4",
+    "px-2",
+    "py-2",
+    "mt-10",
+    "w-full",
+    "outline",
+    "outline-[4px]",
+    "outline-offset-[8px]",
+    "outline-primary-fur100",
+  );
   const createPostLink = document.createElement("a");
-  const heading = document.createElement("h2");
   createPostLink.id = "createPostLink";
+  createPostLink.classList.add("btn-base", "btn-primary", "w-full");
   createPostLink.href = "/pets/create/";
-  createPostLink.innerHTML = "Create a Post";
+  createPostLink.innerHTML = "create a new post";
+
+  borderContainer.append(createPostLink);
 
   if (!postsContainer) {
     console.error("No #postsContainer found in the DOM");
@@ -48,14 +70,12 @@ export async function readPostsByOwner() {
 
   if (filteredPosts.length === 0) {
     if (userSuccess) {
-      userSuccess.appendChild(heading);
-      heading.innerHTML = "Make your first post!";
-      userSuccess.appendChild(createPostLink);
+      createPostLink.innerHTML = "";
+      createPostLink.innerHTML = "create your first post";
+      userSuccess.appendChild(borderContainer);
     }
   } else {
-    userSuccess.appendChild(heading);
-    heading.innerHTML = "Make a new post";
-    userSuccess.appendChild(createPostLink);
+    userSuccess.appendChild(borderContainer);
     renderMultiplePosts(filteredPosts, postsContainer);
   }
 }
