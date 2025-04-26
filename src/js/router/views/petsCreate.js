@@ -1,6 +1,7 @@
 import { onCreatePost } from "../../ui/post/create";
 import { navToggler } from "../../utilities/navToggler";
 import { authGuard } from "../../utilities/authGuard";
+import { buttonBase } from "../../ui/components/buttons/buttonTemplate";
 import { setupImagePreview } from "../../ui/global/imagePreview";
 import { validateField } from "../../ui/global/validateField";
 import {
@@ -16,7 +17,13 @@ import {
 
 function initializePostCreate() {
   authGuard();
-  navToggler();
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  if (header && footer) {
+    navToggler();
+  } else {
+    console.error("No #footer or #header element located in the DOM");
+  }
 
   const form = document.querySelector("#createPost");
   // setupImagePreview();
@@ -71,6 +78,8 @@ function initializePostCreate() {
       isValidSize,
       "Please enter the weight of your pet ending with kg, lbs or pounds",
     );
+
+    form.appendChild(buttonBase("primary", "Create Post", "", "submit"));
 
     form.addEventListener("submit", onCreatePost);
   } else {

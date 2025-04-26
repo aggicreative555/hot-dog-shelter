@@ -1,7 +1,14 @@
-export function buttonBase({ type = "primary", label = "Click", href }) {
+export function buttonBase({
+  type = "primary",
+  label = "Click",
+  href,
+  btnType = "submit",
+}) {
   const tag = href ? "a" : "button";
   const el = document.createElement(tag);
   if (href) el.href = href;
+
+  el.type = btnType;
 
   el.className = `
       btn-base

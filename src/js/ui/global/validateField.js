@@ -25,7 +25,11 @@ export function validateField(input, testFn, errorMessage) {
 
     const errorEl = input.nextElementSibling;
     if (errorEl && errorEl.classList.contains("error-message")) {
-      errorEl.textContent = isValid ? "" : errorMessage;
+      if (!isValid) {
+        errorEl.innerHTML = `<i class="fas fa-exclamation-circle text-accent-ketchup100 mr-2"></i>${errorMessage}`;
+      } else {
+        errorEl.textContent = "";
+      }
     }
   });
 }

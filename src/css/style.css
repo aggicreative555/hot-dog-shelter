@@ -79,11 +79,11 @@
     @apply block mb-1 caption text-primary-fur100;
   }
 
-  .error-text {
-    @apply body-text text-accent-ketchup100 mt-1 font-medium;
+  .error-message {
+    @apply text-body font-manrope text-accent-ketchup100 mb-5 font-medium;
   }
 
   .input-wrapper {
-    @apply flex flex-col gap-2 w-full h-fit;
+    @apply flex flex-col gap-2 w-full h-fit transition-all duration-100;
   }
 }

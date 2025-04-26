@@ -91,7 +91,8 @@ export function adminNav() {
   createLink.textContent = "create";
   createLink.appendChild(createIcon);
 
-  const userIconContainer = document.createElement("div");
+  const userIconContainer = document.createElement("a");
+  userIconContainer.href = "/profile/";
   userIconContainer.classList.add(
     "relative",
     "group",
@@ -191,7 +192,8 @@ export function adminNav() {
     "z-0",
   );
 
-  const mobileUserIconContainer = document.createElement("div");
+  const mobileUserIconContainer = document.createElement("a");
+  mobileUserIconContainer.href = "/profile/";
   mobileUserIconContainer.classList.add(
     "relative",
     "group",
