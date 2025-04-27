@@ -10,53 +10,65 @@
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body>
-    <h1 class="">Login</h1>
-    <div id="userSuccess" role="alert" aria-live="polite"></div>
-    <form name="login" id="loginForm" aria-describedby="userSuccess">
-      <fieldset>
-        <legend>Log into your account</legend>
-        <div>
-          <label for="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            class=""
-            placeholder="yourname@stud.noroff.no"
-            required
-            pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-            title="Must be a noroff.no or stud.noroff.no email address"
-            aria-required="true"
-            aria-label="Email address"
-            inputmode="email"
-            autocomplete="email"
-          />
-          <p class="error-message" aria-live="polite"></p>
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-            required
-            minlength="8"
-            maxlength="30"
-            title="Password must be at least 8 characters"
-            aria-required="true"
-            aria-label="Password"
-            inputmode="text"
-            autocomplete="current-password"/>
+  <body class="bg-brown-100 flex flex-col items-center">
+    <header id="header"></header>
+    <main id="main" class="mx-8 flex flex-col items-center justify-center transition-all duration-150 my-10 gap-4 max-w-[864px]">
+      <div class="pointer-events-none container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[8px] bg-brown-400 text-primary-fur100">
+        <h1 class="flex flex-col justify-center align-middle text-center h1-nigara">log in</h1>
+      </div>
+      <div id="userSuccess" class="container invisible" role="alert" aria-live="polite"></div>
+      <form name="login" id="loginForm" aria-describedby="userSuccess" class=" container flex justify-center items-center flex-col">
+        <fieldset class="border-solid border-2 border-brown-500 input-wrapper pb-14 pt-10 px-10">
+          <legend class="text-center h5 px-5">account</legend>
+          <div>
+            <label for="email" class="label-base">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              class="input-base"
+              placeholder="yourname@stud.noroff.no"
+              required
+              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+              title="Must be a noroff.no or stud.noroff.no email address"
+              aria-required="true"
+              aria-label="Email address"
+              inputmode="email"
+              autocomplete="email"
+            />
             <p class="error-message" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="password" class="label-base">Password</label>
+            <input
+              class="input-base"
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              required
+              minlength="8"
+              maxlength="30"
+              title="Password must be at least 8 characters"
+              aria-required="true"
+              aria-label="Password"
+              inputmode="text"
+              autocomplete="current-password"/>
+              <p class="error-message" aria-live="polite"></p>
+          </div>
+        </fieldset>
+      </form>
+      <div class="container mt-14 text-primary-mayo100 bg-accent-ketchup100 border-solid border-primary-fur100 border-2 h-fit w-full flex flex-col lg:flex-row justify-center m-4 p-8 items-center outline outline-[3px] outline-offset-[8px] outline-primary-fur100">
+        <h2 class="flex flex-col w-full justify-center items-center pointer-events-none">
+          <span class="text-2xl font-academy uppercase">not a</span>
+          <span class="h1-nigara text-center">user ?</span>
+        </h2>
+        <div class="flex flex-col w-full mx-4">
+          <p class="text-body text-center hidden lg:block text-brown-200 py-4">Create a user to be able to make a post about your pet!</p>
+          <a href="/auth/register/" id="registerButton" class="btn-base btn-secondary text-center">register today</a>
         </div>
-      </fieldset>
-      <button type="submit">Login</button>
-    </form>
-    <div class="">
-      <h2>Want to become a member?</h2>
-      <a href="/auth/register/">Register</a>
-    </div>
+      </div>
+    </main>
+    <footer id="footer"></footer>
   </body>
 </html>

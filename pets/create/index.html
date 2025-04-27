@@ -10,13 +10,12 @@
   </head>
   <body class="bg-brown-100">
     <header id="header"></header>
-    <main id="main" class="mx-8 lg:m-40 flex flex-col items-center transition-all duration-150 my-10 gap-4">
+    <main id="main" class="mx-8 md:mx-auto flex flex-col items-center justify-center transition-all duration-150 my-10 gap-4 max-w-[864px]">
       <div class="container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[8px] bg-brown-400 text-primary-fur100">
         <h1 class="flex flex-col justify-center align-middle text-center h1-nigara">post pet</h1>
       </div>
       <img id="image-preview" alt="" style="display:none;" class="mt-4 w-64 h-64 object-cover rounded" />
       <form id="createPost" aria-labelledby="formTitle" class="flex flex-col gap-4 container">
-        <div id="userSuccess" class="" aria-live="polite"></div>
         <fieldset class="border-solid border-2 border-brown-500 input-wrapper pb-14 pt-10 px-10">
           <legend class="text-center h5 px-5">essentials</legend>
           <label for="name" class="label-base">Name</label>
@@ -35,7 +34,7 @@
           autocomplete="name"/>
           <p class="error-message" aria-live="polite"></p>
           <label for="species" class="label-base">Species</label>
-          <select id="species" name="species" aria-describedby="userSuccess" class="input-base font-manrope text-brown-700 text-base font-normal" required>
+          <select id="species" name="species" aria-describedby="userSuccess" class="input-base font-manrope text-brown-700 text-base font-normal drop-shadow-md" required>
             <option value="" class="">Select a species</option>
             <option value="cat">Cat</option>
             <option value="dog">Dog</option>
@@ -186,6 +185,7 @@
           autocomplete="on" />
           <p class="error-message" aria-live="polite"></p>
         </fieldset>
+        <div id="userSuccess" class="invisible" aria-live="polite"></div>
       </form>
     </main>
     <footer id="footer"></footer>

@@ -45,21 +45,22 @@ export async function register({ name, email, password }) {
       "Registration failed. Please check that all fields are filled in correctly and try again.";
 
     if (userSuccess) {
-      userSuccess.style.display = "block";
       userSuccess.innerHTML = ""; // Clear
     }
 
     if (response.ok) {
-      userSuccess.style.display = "block";
+      userSuccess.classList.remove("invisible");
       userSuccess.innerHTML = `User created successfully, logging in...`;
       setTimeout(() => {
         login({ email, password });
       }, 2000);
       return result;
     } else {
+      userSuccess.classList.remove("invisible");
       userSuccess.innerHTML = errorMessage;
 
       setTimeout(() => {
+        userSuccess.classList.add("invisible");
         userSuccess.innerHTML = ""; // Clear
       }, 4000);
     }

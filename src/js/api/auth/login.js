@@ -38,20 +38,21 @@ export async function login({ email, password }) {
       "Login failed. Please check that all fields are filled in correctly and try again.";
 
     if (userSuccess) {
-      userSuccess.style.display = "block";
       userSuccess.innerHTML = ""; // Clear
     }
 
     if (response.ok) {
-      userSuccess.style.display = "block";
+      userSuccess.classList.remove("invisible");
       userSuccess.innerHTML = `Login sucessful! Redirecting to home page...`;
       setTimeout(() => {
         window.location.href = "/";
-      }, 1500);
+      }, 2000);
     } else {
+      userSuccess.classList.remove("invisible");
       userSuccess.innerHTML = errorMessage;
 
       setTimeout(() => {
+        userSuccess.classList.add("invisible");
         userSuccess.innerHTML = ""; // Clear
       }, 4000);
     }
