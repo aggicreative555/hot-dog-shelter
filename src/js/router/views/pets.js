@@ -11,6 +11,7 @@ import {
 } from "../../ui/post/renderPost";
 import { searchBar, setupLiveSearch } from "../../ui/global/search";
 import { postIdCard } from "../../ui/components/post/postIdPost";
+import { loadMultiplePosts, setupPagination } from "../../ui/post/pagniation";
 
 /**
  * @async
@@ -38,6 +39,8 @@ export async function loadPosts() {
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("id");
   const container = document.getElementById("postsContainer");
+  const updateContainer = document.getElementById("update");
+  const message = document.getElementById("userSuccess");
   const searchContainer = document.getElementById("searchContainer");
 
   if (!container) {
@@ -45,10 +48,14 @@ export async function loadPosts() {
     return;
   }
 
+  const goBack = document.getElementById("goBack");
+  goBack.appendChild(goBackButton());
   try {
     if (!postId) {
       const posts = await readPosts();
       renderMultiplePosts(posts);
+      loadMultiplePosts();
+      setupPagination();
       save("cachedPosts", JSON.stringify(posts));
       searchBar(searchContainer);
       setupLiveSearch({
@@ -58,20 +65,22 @@ export async function loadPosts() {
       });
       setupPostClickNavigation();
     } else if (postId) {
+      const pagination = document.getElementById("pagination");
+      pagination.classList.add("hidden");
       const post = await readPost(postId);
       const postOwnerName = post.owner.name;
       const currentUserName = load("userName");
       container.innerHTML = "";
       container.appendChild(postIdCard(post));
-      goBackButton();
-      shareButton();
       if (currentUserName === postOwnerName) {
-        updateButton(postId);
+        updateContainer.append(updateButton(postId));
       }
     }
   } catch (error) {
     console.error("Error loading post(s):", error);
-    container.innerHTML = "<p>Something went wrong loading posts.</p>";
+    message.classList.remove("invisible");
+    message.innerHTML =
+      "Something went wrong loading posts.Refresh the page...";
   }
 }
 
