@@ -4,6 +4,7 @@ export function singlePost(post) {
     "post-item",
     "text-primary-mayo100",
     "bg-brown-800",
+    "capitalize",
     "border-solid",
     "border-primary-fur100",
     "border-2",
@@ -105,7 +106,7 @@ export function singlePost(post) {
   const species = document.createElement("p");
   species.classList.add(
     "text-caption",
-    "normal-case",
+    "capitalize",
     "font-medium",
     "text-brown-800",
     "text-center",

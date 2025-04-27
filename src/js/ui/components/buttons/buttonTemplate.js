@@ -1,6 +1,6 @@
 export function buttonBase({
   type = "primary",
-  label = "Click",
+  label = "Button",
   href,
   btnType = "submit",
 }) {

@@ -32,6 +32,12 @@ export function renderMultiplePosts(posts) {
   );
 
   posts.forEach((post) => {
+    if (!post.image || !post.image.url) {
+      post.image = {
+        url: "/images/man-with-dog-in-leash-884w.jpg",
+        alt: "Greyscale image of a man holding a dog on a leash",
+      };
+    }
     const postElement = singlePost(post);
     container.appendChild(postElement);
   });

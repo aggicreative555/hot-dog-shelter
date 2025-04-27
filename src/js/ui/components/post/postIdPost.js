@@ -1,3 +1,5 @@
+import { shareButton } from "../../global/shareButton";
+
 export function postIdCard(post) {
   const mainContainer = document.createElement("div");
   mainContainer.classList.add(
@@ -12,8 +14,11 @@ export function postIdCard(post) {
     "transition-all",
     "duration-150",
     "ease-in-out",
-    "items-start",
-    "justify-start",
+    "items-center",
+    "lg:items-start",
+    "justify-center",
+    "justify-between",
+    "z-10",
   );
 
   mainContainer.dataset.id = `${post.id}`;
@@ -21,13 +26,19 @@ export function postIdCard(post) {
   const pictureFrame = document.createElement("div");
   pictureFrame.classList.add(
     "relative",
-    "border-[8px]",
-    "border-primary-fur100",
     "overflow-hidden",
+    "border-8",
+    "border-brown-800",
+    "mb-6",
+    "mx-2",
     "w-full",
-    "md:max-h-[546px]",
-    "lg:w-[992px]",
+    "max-w-[620px]",
+    "lg:border-[24px]",
+    "lg:my-0",
+    "lg:w-auto",
     "lg:h-full",
+    "lg:min-h-[611px]",
+    "lg:w-[992px]",
   );
 
   const pic = document.createElement("img");
@@ -38,7 +49,13 @@ export function postIdCard(post) {
   } else {
     pic.src = post.image.url;
   }
-  pic.classList.add("w-fill", "h-auto", "object-scale", "mx-auto", "block");
+  pic.classList.add(
+    "w-full",
+    "h-full",
+    "object-cover",
+    "lg:min-h-[611px]",
+    "lg:max-h-[611px]",
+  );
   pic.alt = `${post.image.alt || "Image of pet"}`;
   pic.setAttribute("aria-label", `${post.image.alt}`);
   const overlay = document.createElement("div");
@@ -53,11 +70,23 @@ export function postIdCard(post) {
     "pointer-events-none",
     "hover:opacity-30",
   );
+
+  const shareContainer = document.createElement("div");
+  shareContainer.classList.add("absolute", "top-4", "right-4");
+  shareContainer.appendChild(shareButton());
   pictureFrame.appendChild(pic);
+  pictureFrame.appendChild(shareContainer);
   pictureFrame.appendChild(overlay);
 
   const mainContent = document.createElement("div");
-  mainContent.classList.add("flex", "flex-col", "my-2", "px-6");
+  mainContent.classList.add(
+    "flex",
+    "flex-col",
+    "px-6",
+    "md:justify-between",
+    "h-full",
+    "lg:gap-6",
+  );
 
   const titleContent = document.createElement("div");
   titleContent.classList.add(
@@ -99,7 +128,7 @@ export function postIdCard(post) {
   const species = document.createElement("p");
   species.classList.add(
     "text-caption",
-    "normal-case",
+    "capitalize",
     "font-medium",
     "text-brown-800",
     "text-center",
@@ -113,7 +142,6 @@ export function postIdCard(post) {
   description.textContent = post.description?.trim()
     ? post.description
     : "My pet needs an owner who’s loving.";
-
   const attributeContainer = document.createElement("div");
   attributeContainer.classList.add(
     "flex",
@@ -123,6 +151,7 @@ export function postIdCard(post) {
     "gap-4",
     "px-3",
     "justify-center",
+    "capitalize",
   );
 
   const location = document.createElement("p");

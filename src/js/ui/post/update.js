@@ -18,7 +18,6 @@ export async function onUpdatePost(event) {
   const formData = new FormData(form);
   const postData = Object.fromEntries(formData.entries());
   const messageContainer = document.getElementById("userSuccess");
-  messageContainer.style.display = "block";
 
   const id = new URLSearchParams(window.location.search).get("id");
 
@@ -30,6 +29,7 @@ export async function onUpdatePost(event) {
   // Ensure age is a number
   const age = Number(postData.age);
   if (isNaN(age)) {
+    messageContainer.classList.remove("invisible");
     messageContainer.innerHTML = "Age must be a valid number";
     return;
   }
@@ -52,14 +52,17 @@ export async function onUpdatePost(event) {
     const result = await updatePost(id, body);
 
     if (result.ok) {
+      messageContainer.classList.remove("invisible");
       messageContainer.innerHTML = "Post successfully updated! Refreshing...";
       setTimeout(() => (window.location.href = `/pets/?id=${id}`), 2000);
     } else {
+      messageContainer.classList.remove("invisible");
       messageContainer.innerHTML =
         "Failed to update post. Please check your inputs and try again.";
     }
   } catch (error) {
     console.error("Update failed:", error);
+    messageContainer.classList.remove("invisible");
     messageContainer.innerHTML =
       "Something went wrong. Please refresh and try again.";
   }
