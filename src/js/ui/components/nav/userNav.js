@@ -50,7 +50,6 @@ export function userNav() {
 
   const petsIcon = document.createElement("img");
   petsIcon.src = "/icon/custom-arrow-icon.svg";
-  petsIcon.classList.add = "w-fit";
   petsIcon.alt = "Arrow icon";
   const petsLink = document.createElement("a");
   petsLink.setAttribute("aria-label", "View pets available for adoption");

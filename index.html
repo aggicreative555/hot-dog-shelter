@@ -12,20 +12,31 @@
 
 <body class="bg-brown-100">
   <header id="header"></header>
-  <main id="main" class="mx-8 lg:m-40 flex flex-col items-center transition-all duration-150 my-10 gap-4">
-    <h1 class="invisible">Home Page</h1>
+  <main id="main" class="mx-8 lg:mx-40 flex flex-col items-center transition-all duration-150 mb-10 gap-4">
+    <div class="relative w-screen overflow-hidden min-h-[498px] max-h-[631px]">
+      <div id="carousel" class="absolute inset-0 w-full h-full flex-row transition-transform duration-1000 ease-in-out">
+        <!-- Image 1 -->
+        <img class="object-cover -bottom-1/2 w-[1920px] h-auto" src="/images/hot-dog-shelter-banner-1920w.jpg" alt="Dachshund standing by a building">
+        <!-- Image 2 -->
+        <img class="object-cover -top-3/4 w-[1920px] h-auto" src="/images/woman-with-dog-majestic-1920w.jpg" alt="Majestic woman with dog">
+        <!-- Image 3 -->
+        <img class="w-[1920px] object-cover -top-3/4 h-auto" src="/images/husky-992w.jpg" alt="Husky looking into the distance">
+      </div>
+      <div class="absolute bottom-0 w-full h-full bg-brown-800 bg-opacity-40 p-4">
+      </div>
+    </div>
+    <h1 class="hidden">Home Page</h1>
     <div class="container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[16px] bg-brown-800 text-primary-mayo100">
       <h3 class="flex flex-col justify-center align-middle text-center">
         <span class="text-2xl font-academy uppercase">find your new</span>
         <span class="h1-nigara">companion</span>
       </h3>
     </div>
-    <div id="postsContainer"></div>
-
+    <div id="postListSection" class="mb-10 container flex flex-wrap gap-4 justify-center items-center">
+      <div id="postsContainer" class="mb-4"></div>
+    </div>
     <div id="signUpCard" class="container my-10"></div>
-
     <div id="localShelterCard"></div>
-    
   </main>
   <footer id="footer"></footer>
 </body>

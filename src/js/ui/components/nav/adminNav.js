@@ -1,5 +1,4 @@
 import { load } from "../../../utilities/authGuard";
-import { setLogoutListener } from "../../global/logout";
 
 export function adminNav() {
   const headerContainer = document.createElement("div");
@@ -153,7 +152,7 @@ export function adminNav() {
     "transition-transform",
     "duration-300",
     "ease-in-out",
-    "z-0",
+    "z-10",
   );
 
   menuButton.addEventListener("click", () => {

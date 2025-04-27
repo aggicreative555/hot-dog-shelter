@@ -14,6 +14,7 @@ import { remove } from "../../utilities/authGuard";
 
 export function setLogoutListener(container) {
   const logoutButton = document.createElement("button");
+  logoutButton.classList.add("btn-base", "btn-secondary", "md:w-[341px]");
   const messageContainer = document.getElementById("userSuccess");
 
   logoutButton.innerHTML = "Log out";

@@ -2,6 +2,8 @@ import { authGuard } from "../../utilities/authGuard";
 import { onUpdatePost } from "../../ui/post/update";
 import { deleteButton } from "../../ui/global/deleteButton";
 import { validateField } from "../../ui/global/validateField";
+import { navToggler } from "../../utilities/navToggler";
+import { buttonBase } from "../../ui/components/buttons/buttonTemplate";
 import { prefillUpdateForm } from "../../utilities/prefillUpdateForm";
 import {
   isValidAge,
@@ -26,6 +28,13 @@ import {
 
 async function initializePostEdit() {
   authGuard();
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  if (header && footer) {
+    navToggler();
+  } else {
+    console.error("No #footer or #header element located in the DOM");
+  }
 
   const form = document.querySelector("#updateForm");
   const id = new URLSearchParams(window.location.search).get("id");
@@ -91,6 +100,21 @@ async function initializePostEdit() {
   } else {
     console.error("Edit post form or delete button not found");
   }
+
+  form.appendChild(
+    buttonBase({
+      type: "primary",
+      label: "Update Post",
+      btnType: "submit",
+    }),
+  );
+  form.appendChild(
+    buttonBase({
+      type: "secondary",
+      label: "Back to Profile",
+      href: "/profile/",
+    }),
+  );
 }
 
 initializePostEdit();

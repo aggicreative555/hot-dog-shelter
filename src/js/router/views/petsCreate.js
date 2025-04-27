@@ -79,8 +79,13 @@ function initializePostCreate() {
       "Please enter the weight of your pet ending with kg, lbs or pounds",
     );
 
-    form.appendChild(buttonBase("primary", "Create Post", "", "submit"));
-
+    form.appendChild(
+      buttonBase({
+        type: "primary",
+        label: "Create Post",
+        btnType: "submit",
+      }),
+    );
     form.addEventListener("submit", onCreatePost);
   } else {
     console.error("Create Post form not found");

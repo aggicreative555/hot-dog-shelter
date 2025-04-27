@@ -41,7 +41,7 @@
   @apply font-ibarra text-h5 uppercase;
 }
 .button {
-  @apply font-manrope text-body uppercase font-semibold;
+  @apply font-manrope text-body uppercase font-medium;
 }
 .body-text {
   @apply font-manrope text-body capitalize;
@@ -53,13 +53,13 @@
 
 /* buttons */
 .btn-base {
-  @apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] button transition-all duration-100 m-4;
+  @apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] md:min-w-80 button transition-all duration-100 m-4 disabled:opacity-70 disabled:outline-none disabled:pointer-events-none;
 }
 .btn-primary {
-  @apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-2 border-2 border-primary-fur100 group-hover:bg-brown-700  group-hover:border-4 group-hover:outline-4;
+  @apply bg-brown-800 text-primary-mayo100 px-14 py-4 outline outline-2 border-2 border-primary-fur100 hover:border-4 hover:outline-4 hover:bg-brown-700 hover:text-primary-mayo100 hover:font-semibold;
 }
 .btn-secondary {
-  @apply bg-primary-mayo100 text-brown-800 group-hover:bg-brown-300 px-14 py-4 outline outline-2 border-2 border-primary-fur100  group-hover:border-4 group-hover:outline-4;
+  @apply bg-primary-mayo100 text-brown-800 px-14 py-4 outline outline-2 border-2 border-primary-fur100 hover:border-4 hover:outline-4 hover:bg-brown-100 hover:text-brown-800 hover:font-semibold;
 }
 
 .btn-display {
@@ -85,5 +85,9 @@
 
   .input-wrapper {
     @apply flex flex-col gap-2 w-full h-fit transition-all duration-100;
+  }
+
+  #userSuccess {
+    @apply container flex flex-col font-ibarra capitalize font-semibold text-2xl tracking-wide italic outline outline-2 w-full h-fit text-center outline-brown-800 outline-offset-2 border-2 border-brown-800 bg-primary-mayo100 text-brown-400 pointer-events-none p-6 m-4 transition-all duration-150 ease-in-out;
   }
 }
