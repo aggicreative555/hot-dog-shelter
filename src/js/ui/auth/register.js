@@ -66,8 +66,6 @@ export function onRegister() {
       const email = formData.get("email");
       const password = formData.get("password");
 
-      console.log(name);
-
       try {
         await register({ name, email, password });
         form.reset();
