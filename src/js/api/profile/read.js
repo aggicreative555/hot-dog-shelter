@@ -1,6 +1,7 @@
 import { load, save } from "../../utilities/authGuard";
 import { readPosts } from "../post/read";
 import { renderMultiplePosts } from "../../ui/post/renderPost";
+import { updateButton } from "../../ui/global/updateButton";
 
 /**
  * Filters and displays posts created by the currently logged-in user.
@@ -16,7 +17,7 @@ import { renderMultiplePosts } from "../../ui/post/renderPost";
 let cachedPosts = [];
 
 export async function readPostsByOwner() {
-  const userSuccess = document.getElementById("userSuccess");
+  const createPostContainer = document.getElementById("createPostContainer");
   const postsContainer = document.getElementById("postsContainer");
   const currentUser = load("userName");
 
@@ -66,16 +67,30 @@ export async function readPostsByOwner() {
   });
 
   postsContainer.innerHTML = "";
-  userSuccess.innerHTML = "";
+  createPostContainer.innerHTML = "";
 
   if (filteredPosts.length === 0) {
-    if (userSuccess) {
+    if (createPostContainer) {
       createPostLink.innerHTML = "";
       createPostLink.innerHTML = "create your first post";
-      userSuccess.appendChild(borderContainer);
+      createPostContainer.appendChild(borderContainer);
     }
   } else {
-    userSuccess.appendChild(borderContainer);
     renderMultiplePosts(filteredPosts, postsContainer);
+
+    setTimeout(() => {
+      const singlePosts = postsContainer.querySelectorAll(".post-item");
+
+      singlePosts.forEach((postElement, index) => {
+        const post = filteredPosts[index];
+        if (post && post.id) {
+          const button = updateButton(post.id);
+          button.classList.replace("btn-primary", "btn-secondary");
+          button.classList.replace("md:w-full", "w-auto");
+          postElement.appendChild(button);
+        }
+      });
+    }, 0);
+    createPostContainer.appendChild(borderContainer);
   }
 }

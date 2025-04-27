@@ -11,15 +11,17 @@
   </head>
   <body class="bg-brown-100">
     <header id="header"></header>
-    <main id="main" class="mx-8 lg:m-40 flex flex-col items-center transition-all duration-150 my-10 gap-4">
-      <h1 class="invisible">Profile</h1>
+    <main id="main" class="mx-8 lg:m-40 flex flex-col justify-center items-center transition-all duration-150 my-10 gap-4">
+      <h1 class="hidden">My Profile</h1>
       <div id="profileContainer" class="container flex justify-center items-center flex-col"></div>
       <div class="container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[8px] bg-accent-ketchup100 text-primary-mayo100">
         <h2 class="flex flex-col justify-center align-middle text-center h1-nigara">my posts</h2>
       </div>
-      <div id="userSuccess" class="container"></div>
-      <div id="postsContainer">
-      </div></main>
+      <div id="createPostContainer" class="flex items-center justify-center text-center"></div>
+      <div id="logOutContainer" class="flex items-center justify-center"></div>
+      <div id="postsContainer"></div>
+      <div id="userSuccess" class="invisible" role="alert" aria-live="polite"></div>
+    </main>
     <footer id="footer"></footer>
   </body>
 </html>

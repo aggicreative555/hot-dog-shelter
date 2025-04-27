@@ -12,11 +12,19 @@ export function updateButton(postId) {
     return;
   }
   const updateButton = document.createElement("button");
-  updateButton.innerHTML = "Update post";
+  updateButton.classList.add(
+    "btn-base",
+    "btn-primary",
+    "md:w-full",
+    "lg:max-w-[630px]",
+    "z-50",
+  );
+  updateButton.textContent = "Edit Post";
 
-  updateButton.addEventListener("click", () => {
+  updateButton.addEventListener("click", (event) => {
+    event.stopPropagation();
     window.location.href = `/pets/edit/?id=${postId}`;
   });
 
-  document.body.appendChild(updateButton);
+  return updateButton;
 }
