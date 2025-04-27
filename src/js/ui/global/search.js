@@ -23,6 +23,7 @@ export async function searchByPost({ query, searchType, postsContainer }) {
   const userSuccess = document.getElementById("userSuccess");
 
   if (!query || !searchType) {
+    userSuccess.classList.remove("invisible");
     userSuccess.innerHTML = "Please enter a valid search query.";
     return;
   }
@@ -49,13 +50,15 @@ export async function searchByPost({ query, searchType, postsContainer }) {
 
   if (filteredPosts.length === 0) {
     if (userSuccess) {
-      userSuccess.innerHTML = `<p>No results found for "<strong>${query}</strong>".</p>`;
+      userSuccess.classList.remove("invisible");
+      userSuccess.textContent = `No results found for ${query}`;
     }
   } else {
     renderMultiplePosts(filteredPosts, postsContainer);
   }
 
   if (userSuccess) {
+    userSuccess.classList.remove("invisible");
     const message =
       filteredPosts.length === 1
         ? `1 result found for "<strong>${query}</strong>"`
@@ -111,40 +114,103 @@ export function setupLiveSearch({ inputId, typeSelectId, postsContainerId }) {
 
 export function searchBar(container) {
   const searchBar = document.createElement("div");
+  searchBar.classList.add(
+    "w-full",
+    "h-fit",
+    "flex-wrap",
+    "md:flex-nowrap",
+    "my-4",
+    "p-2",
+    "border-2",
+    "border-primary-fur100",
+    "bg-primary-mayo100",
+    "max-w-[700]",
+    "flex",
+    "flex-row",
+    "justify-start",
+    "align-middle",
+    "gap-4",
+  );
   searchBar.id = "searchBar";
 
   const select = document.createElement("select");
   select.id = "searchType";
+  select.classList.add(
+    "border-2",
+    "border-primary-fur100",
+    "text-brown-800",
+    "font-medium",
+    "body-text",
+    "bg-primary-mayo100",
+  );
 
   const defaultOption = document.createElement("option");
   defaultOption.value = "";
   defaultOption.disabled = true;
   defaultOption.selected = true;
   defaultOption.textContent = "Search by";
+  defaultOption.classList.add("body-text", "font-medium", "text-brown-800");
+  const arrowIcon = document.createElement("img");
+  arrowIcon.src = "/icon/custom-arrow-icon.svg";
+  arrowIcon.alt = "Arrow icon";
+
+  defaultOption.append(arrowIcon);
 
   const options = ["name", "breed", "species", "color", "description", "owner"];
   const optionElements = options.map((type) => {
     const option = document.createElement("option");
     option.value = type;
-    option.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+    option.textContent = type.charAt(0).toLowerCase() + type.slice(1);
     return option;
   });
 
   select.appendChild(defaultOption);
   optionElements.forEach((opt) => select.appendChild(opt));
 
+  const noWrapContainer = document.createElement("div");
+  noWrapContainer.classList.add(
+    "flex",
+    "flex-row",
+    "justify-between",
+    "w-full",
+  );
+
   const searchInput = document.createElement("input");
   searchInput.type = "text";
-  searchInput.placeholder = "Search by name, breed, color and more...";
+  searchInput.placeholder = "Enter a keyword";
+  searchInput.classList.add(
+    "placeholder:text-brown-500",
+    "placeholder:body-text",
+    "w-fit",
+    "body-text",
+    "border-none",
+    "bg-primary-mayo100",
+    "focus:border-brown-500",
+    "focus:border-2",
+  );
   searchInput.id = "searchQuery";
 
   const searchButton = document.createElement("button");
   searchButton.id = "searchButton";
-  searchButton.innerHTML = "Search";
+  searchButton.innerHTML = "";
+  searchButton.classList.add(
+    "fa-solid",
+    "jusitfy-self-end",
+    "fa-magnifying-glass",
+    "p-2",
+    "m-2",
+    "border-2",
+    "border-primary-fur100",
+    "h-[48px]",
+    "w-[48px]",
+    "text-2xl",
+  );
+  searchButton.title = "Search";
+  searchButton.ariaLabel = "Search";
 
+  noWrapContainer.append(searchInput, searchButton);
   searchBar.appendChild(select);
-  searchBar.appendChild(searchInput);
-  searchBar.appendChild(searchButton);
+  searchBar.appendChild(noWrapContainer);
   container.prepend(searchBar);
 
   searchButton.addEventListener("click", async () => {
@@ -154,6 +220,7 @@ export function searchBar(container) {
     const userSuccess = document.getElementById("userSuccess");
 
     if (!query || !searchType) {
+      userSuccess.classList.remove("invisible");
       userSuccess.innerHTML = "Please select a search type and enter a query.";
       return;
     }
