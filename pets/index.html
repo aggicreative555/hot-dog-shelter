@@ -11,14 +11,21 @@
   </head>
   <body class="bg-brown-100">
     <header id="header"></header>
-    <main class="mx-8 lg:m-40 flex flex-col items-center justify-center align-middle transition-all duration-150 my-10 gap-4">
+    <main class="mx-8 lg:mx-40 flex flex-col items-center justify-center align-middle transition-all duration-150 gap-4">
+      <div id="goBack" class="container h-fit py-4 mt-10"></div>
       <div class="container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[8px] bg-accent-ketchup100 text-primary-mayo100">
         <h1 class="flex flex-col justify-center align-middle text-center display-title">pets</h1>
       </div>
-      <div id="searchContainer"></div>
-      <div id="userSuccess"></div>
-      <div id="postListSection">
+      <div id="userSuccess" class="invisible"></div>
+      <div id="searchContainer" class="container"></div>
+      <div id="postListSection" class="mb-10">
         <div id="postsContainer"></div>
+        <div id="update" class="flex justify-center items-center lg:items-end lg:justify-end"></div>
+      </div>
+      <div id="pagination" class="flex gap-2 flex-col items-center justify-center mt-6 mb-10">
+        <button id="prevPage" class="btn-base btn-secondary">Prev</button>
+        <div id="pageNumbers" class="flex gap-3 italic font-medium text-brown-800 font-ibarra text-2xl"></div>
+        <button id="nextPage" class="btn-base btn-secondary">Next</button>
       </div>
     </main>
     <footer id="footer"></footer>
