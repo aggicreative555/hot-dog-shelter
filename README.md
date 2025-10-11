@@ -1,6 +1,9 @@
 _Noroff Semester Project_
 
-# HOTDOG SHELTER | _Pet Adoption Website_
+<img src="<img width="1872" height="961" alt="image" src="https://github.com/user-attachments/assets/8a4fa40e-d522-4f5f-9da1-fd66fe42e9c1" />
+" alt-"hot dog shelter home page screenshot"/>
+
+# 🌭 HOT DOG SHELTER | Pet Adoption
 
 ## Description:
 
@@ -136,11 +139,11 @@ npm run build
 - **Development Tools:**
     - ESLint – Linting for cleaner code
     - Prettier – Automatic code formatting
-    - dotenv – Environment variable management
+    - @tailwnd/forms - Form styling
 
 ### License:
 
-This project uses an **ISC** license.
+This project uses an **MIT** license.
 
 ### Acknowledgements:
 
