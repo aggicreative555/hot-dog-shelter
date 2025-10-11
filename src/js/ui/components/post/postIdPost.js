@@ -19,6 +19,7 @@ export function postIdCard(post) {
     "justify-center",
     "justify-between",
     "z-10",
+    "cursor-pointer",
   );
 
   mainContainer.dataset.id = `${post.id}`;

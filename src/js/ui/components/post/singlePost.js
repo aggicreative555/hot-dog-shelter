@@ -28,7 +28,7 @@ export function singlePost(post) {
     "transition-all",
     "duration-300",
     "ease-in-out",
-    "cursor:pointer",
+    "cursor-pointer",
   );
   mainContainer.dataset.id = `${post.id}`;
 

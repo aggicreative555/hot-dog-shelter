@@ -14,6 +14,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply cursor-default;
+  }
+}
 /* fonts */
 
 .display-title {
@@ -52,6 +57,14 @@
 }
 
 /* buttons */
+button {
+  @apply cursor-pointer
+}
+
+a {
+  @apply cursor-pointer
+}
+
 .btn-base {
   @apply inline-flex items-center justify-center outline outline-2 outline-primary-fur100 outline-offset-[.2rem] md:min-w-80 button transition-all duration-100 m-4 disabled:opacity-70 disabled:outline-none disabled:pointer-events-none;
 }

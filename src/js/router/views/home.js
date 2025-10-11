@@ -21,7 +21,7 @@ async function initializeHome() {
   if (container) {
     const posts = await readPosts({
       limit: 3,
-      page: 8,
+      page: 1,
       sort: "created",
       sortOrder: "desc",
       active: true,
