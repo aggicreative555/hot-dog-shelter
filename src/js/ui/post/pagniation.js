@@ -55,7 +55,10 @@ export function updatePagination() {
 
     pageButton.addEventListener("click", () => {
       loadMultiplePosts(i);
-      document.body.scrollTop = 0;
+      window.scrollTo({
+        top: 50,
+        behavior: "smooth",
+      });
     });
 
     pageNumbersContainer.appendChild(pageButton);
