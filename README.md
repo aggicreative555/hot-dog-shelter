@@ -1,7 +1,6 @@
 _Noroff Semester Project_
 
-<img src="<img width="1872" height="961" alt="image" src="https://github.com/user-attachments/assets/8a4fa40e-d522-4f5f-9da1-fd66fe42e9c1" />
-" alt-"hot dog shelter home page screenshot"/>
+<img width="1872" height="961" alt="image" src="https://github.com/user-attachments/assets/8a4fa40e-d522-4f5f-9da1-fd66fe42e9c1" />
 
 # 🌭 HOT DOG SHELTER | Pet Adoption
 
