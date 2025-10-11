@@ -26,7 +26,7 @@
   @apply font-academy text-h1 uppercase;
 }
 .h2 {
-  @apply font-academy text-h2 uppercase;
+  @apply font-academy text-h3 uppercase;
 }
 .h3 {
   @apply font-niagara text-h3 uppercase;

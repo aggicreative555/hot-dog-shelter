@@ -29,15 +29,32 @@ export function signUpCard() {
     "m-4",
     "py-4",
     "w-full",
+    "flex",
+    "flex-col",
   );
 
+  const topContentContainer = document.createElement("div");
+  topContentContainer.classList.add(
+    "flex",
+    "flex-col",
+    "md:flex-row",
+    "w-full",
+    "justify-center",
+    "items-center",
+    "gap-20",
+    "duration-300",
+    "transition-all",
+  );
   const titleContent = document.createElement("h3");
   titleContent.classList.add(
     "flex",
     "flex-col",
     "align-middle",
     "justify-center",
+    "md:w-fit",
     "w-full",
+    "md:h-full",
+    "md:gap-6",
     "text-center",
     "uppercase",
   );
@@ -46,13 +63,13 @@ export function signUpCard() {
   line1.classList.add("text-2xl", "uppercase", "font-academy");
   const line2 = document.createElement("span");
   line2.textContent = "pet";
-  line2.classList.add("h2");
+  line2.classList.add("h1-academy");
   const line3 = document.createElement("span");
   line3.textContent = "need a new";
   line3.classList.add("text-2xl", "uppercase", "font-academy");
   const line4 = document.createElement("span");
   line4.textContent = "home";
-  line4.classList.add("h2");
+  line4.classList.add("h1-academy");
   titleContent.append(line1, line2, line3, line4);
 
   const isMediumScreen = window.innerWidth >= 768;
@@ -63,9 +80,7 @@ export function signUpCard() {
     "border-[5px]",
     "border-primary-mayo100",
     "my-4",
-    "w-full",
-    "max-w-xl",
-    "mx-auto",
+    "max-w-[400px]",
     "p-4",
     "m-2",
   );
@@ -91,6 +106,9 @@ export function signUpCard() {
     "flex-col",
     "items-center",
     "gap-4",
+    "md:w-full",
+    "md:mx-auto",
+    
   );
   const description = document.createElement("p");
   description.classList.add(
@@ -101,6 +119,7 @@ export function signUpCard() {
     "text-primary-mayo100",
     "py-10",
     "w-full",
+    "md:w-[800px]",
     "px-8",
     "text-pretty",
   );
@@ -148,7 +167,8 @@ export function signUpCard() {
   bgGraphic.classList.add("absolute", "top-1/3", "z-0");
   darkContainer.append(description, titleContent2, disclaimer, bgGraphic);
 
-  insideBorderContainer.append(titleContent, pictureFrame, darkContainer);
+  topContentContainer.append(titleContent, pictureFrame)
+  insideBorderContainer.append(topContentContainer, darkContainer);
   mainContainer.appendChild(insideBorderContainer);
 
   container.appendChild(mainContainer);

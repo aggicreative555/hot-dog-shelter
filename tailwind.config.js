@@ -5,7 +5,6 @@ export default {
     './index.html',
     "./**/*.html",
     './src/**/*.{js,ts,jsx,tsx}',
-    '!./node_modules/**/*',
   ],
 
   theme: {
@@ -18,8 +17,8 @@ export default {
       },
 
       fontSize: {
-        display: "11.391rem", // Display font and titles
-        h1: "7.594rem", // Display font and titles
+        display: "7.594rem", // Display font and titles
+        h1: "5.063rem", // Display font and titles
         h2: "5.063rem", // Titles and headings
         h3: "3.375rem", // Titles and headings
         h4: "2.25rem", // Titles and headings

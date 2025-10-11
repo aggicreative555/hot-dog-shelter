@@ -50,8 +50,6 @@ export async function createPost(body) {
 
   if (!response.ok) {
     console.error(`Failed to create post:${post?.message}`);
-  } else {
-    console.error("Post created successfully:", post);
   }
 
   return post;

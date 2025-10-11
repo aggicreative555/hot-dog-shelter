@@ -59,9 +59,10 @@ export function userNav() {
     "py-3",
     "hover:underline",
     "flex",
+    "items-center",
     "gap-2",
     "w-fit",
-    "body-text",
+    "button",
   );
   petsLink.textContent = "Pets";
   petsLink.appendChild(petsIcon);
@@ -79,9 +80,10 @@ export function userNav() {
     "hover:underline",
     "flex",
     "justify-center",
+    "items-center",
     "gap-2",
     "flex-row-reverse",
-    "body-text",
+    "button",
   );
   loginLink.textContent = "Log in";
   loginLink.append(loginIcon);
@@ -99,9 +101,10 @@ export function userNav() {
     "hover:underline",
     "flex",
     "justify-center",
+    "items-center",
     "gap-2",
     "flex-row-reverse",
-    "body-text",
+    "button",
   );
   registerLink.textContent = "Register";
   registerLink.append(registerIcon);

@@ -46,7 +46,7 @@ export async function login({ email, password }) {
       userSuccess.innerHTML = `Login sucessful! Redirecting to home page...`;
       setTimeout(() => {
         window.location.href = "/";
-      }, 2000);
+      }, 1000);
     } else {
       userSuccess.classList.remove("invisible");
       userSuccess.innerHTML = errorMessage;
@@ -54,7 +54,7 @@ export async function login({ email, password }) {
       setTimeout(() => {
         userSuccess.classList.add("invisible");
         userSuccess.innerHTML = ""; // Clear
-      }, 4000);
+      }, 2000);
     }
 
     const {

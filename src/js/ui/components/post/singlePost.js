@@ -26,8 +26,9 @@ export function singlePost(post) {
     "focus:font-medium",
     "focus:outline-[9px]",
     "transition-all",
-    "duration-150",
+    "duration-300",
     "ease-in-out",
+    "cursor:pointer",
   );
   mainContainer.dataset.id = `${post.id}`;
 
@@ -86,7 +87,7 @@ export function singlePost(post) {
     "md:items-center",
   );
   const title = document.createElement("p");
-  title.classList.add("h1-nigara");
+  title.classList.add("h3");
   title.textContent = `${post.name}`;
   const speciesContainer = document.createElement("div");
   speciesContainer.classList.add(

@@ -63,7 +63,7 @@ export async function readPostsByOwner() {
   }
 
   const filteredPosts = cachedPosts.filter((post) => {
-    return post.owner?.name === currentUser;
+    return post?.owner?.name === currentUser;
   });
 
   postsContainer.innerHTML = "";

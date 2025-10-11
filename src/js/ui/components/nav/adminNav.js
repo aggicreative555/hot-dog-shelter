@@ -64,7 +64,8 @@ export function adminNav() {
     "flex",
     "gap-2",
     "w-fit",
-    "body-text",
+    "items-center",
+    "button",
   );
   petsLink.textContent = "Pets";
   petsLink.appendChild(petsIcon);
@@ -83,9 +84,10 @@ export function adminNav() {
     "hover:underline",
     "flex",
     "justify-center",
+    "items-center",
     "gap-2",
     "flex-row",
-    "body-text",
+    "button",
   );
   createLink.textContent = "create";
   createLink.appendChild(createIcon);
