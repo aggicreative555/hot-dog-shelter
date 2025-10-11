@@ -15,16 +15,24 @@
 </head>
 
 <body class="bg-brown-100">
+  <div
+  id="global-preloader"
+  aria-hidden="true"
+  class="fixed inset-0 flex flex-col justify-center items-center bg-brown-800 text-primary-mayo100 z-[9999] transition-opacity duration-700">
+    <div class="w-24 h-24 border-[10px] border-brown-400 border-t-accent-ketchup100 rounded-full animate-spin"></div>
+    <p class="mt-6 h2 text-body tracking-widest uppercase" role="status" aria-label="Loading">Loading...</p>
+  </div>
   <header id="header"></header>
   <main id="main" class="mx-8 lg:mx-40 flex flex-col items-center transition-all duration-150 mb-10 gap-4">
     <div class="relative w-screen overflow-hidden min-h-[498px] max-h-[631px]">
       <div id="carousel" class="absolute inset-0 w-full h-full flex-row transition-transform duration-1000 ease-in-out">
         <!-- Image 1 -->
-        <img class="object-cover -bottom-1/2 w-[1920px] h-auto" src="/images/hot-dog-shelter-banner-1920w.jpg" alt="Dachshund standing by a building">
+        <img class="object-cover -bottom-1/2 w-[1920px] h-auto" src="/images/hot-dog-shelter-banner-1920w.jpg" alt="Dachshund standing by a building" loading="eager"
+          data-critical>
         <!-- Image 2 -->
-        <img class="object-cover -top-3/4 w-[1920px] h-auto" src="/images/woman-with-dog-majestic-1920w.jpg" alt="Majestic woman with dog">
+        <img class="object-cover -top-3/4 w-[1920px] h-auto" src="/images/woman-with-dog-majestic-1920w.jpg" alt="Majestic woman with dog" loading="lazy">
         <!-- Image 3 -->
-        <img class="w-[1920px] object-cover -top-3/4 h-auto" src="/images/husky-992w.jpg" alt="Husky looking into the distance">
+        <img class="w-[1920px] object-cover -top-3/4 h-auto" src="/images/husky-992w.jpg" alt="Husky looking into the distance" loading="lazy">
       </div>
       <div class="absolute bottom-0 w-full h-full bg-brown-800 bg-opacity-40 p-4">
       </div>

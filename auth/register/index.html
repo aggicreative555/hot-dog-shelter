@@ -14,6 +14,13 @@
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body class="bg-brown-100 flex flex-col items-center">
+    <div
+    id="global-preloader"
+    aria-hidden="true"
+    class="fixed inset-0 flex flex-col justify-center items-center bg-brown-800 text-primary-mayo100 z-[9999] transition-opacity duration-700">
+      <div class="w-24 h-24 border-[10px] border-brown-400 border-t-accent-ketchup100 rounded-full animate-spin"></div>
+      <p class="mt-6 h2 text-body tracking-widest uppercase" role="status" aria-label="Loading">Loading...</p>
+    </div>
     <header id="header"></header>
     <main id="main" class="mx-8 lg:m-40 w-full flex flex-col items-center justify-center transition-all duration-150 my-10 gap-4 max-w-[864px]">
       <div class="pointer-events-none container h-fit m-4 py-6 border-solid border-primary-fur100 border-2 outline outline-primary-fur100 outline-offset-[8px] bg-brown-400 text-primary-fur100">
