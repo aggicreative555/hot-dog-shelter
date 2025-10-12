@@ -1,7 +1,6 @@
 import { readPosts } from "../../api/post/read";
 import { readPost } from "../../api/post/read";
 import { goBackButton } from "../../ui/global/goBackButton";
-import { shareButton } from "../../ui/global/shareButton";
 import { updateButton } from "../../ui/global/updateButton";
 import { load, save } from "../../utilities/authGuard";
 import { navToggler } from "../../utilities/navToggler";
